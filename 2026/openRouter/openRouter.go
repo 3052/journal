@@ -6,22 +6,35 @@ import (
    "net/url"
 )
 
-func (p provider_filter) find() (*http.Response, error) {
+type model_data struct {
+   Name string
+   Slug string
+}
+
+func (p provider_filter) find() ([]*model_data, error) {
    var req http.Request
    req.Header = http.Header{}
    req.URL = &url.URL{
       Scheme: "https",
       Host: "openrouter.ai",
       Path: "/api/frontend/models/find",
-      RawQuery: url.Values{
-         //context=16000&
-         //fmt=cards&
-         //input_modalities=text&
-         //output_modalities=text&
-         "providers": {p.Name},
-      }.Encode(),
+      RawQuery: url.Values{"providers": {p.Name}}.Encode(),
    }
-   return http.DefaultClient.Do(&req)
+   resp, err := http.DefaultClient.Do(&req)
+   if err != nil {
+      return nil, err
+   }
+   defer resp.Body.Close()
+   var result struct {
+      Data struct {
+         Models []*model_data
+      }
+   }
+   err = json.NewDecoder(resp.Body).Decode(&result)
+   if err != nil {
+      return nil, err
+   }
+   return result.Data.Models, nil
 }
 
 type provider_filter struct {

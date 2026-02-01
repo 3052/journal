@@ -1,9 +1,12 @@
 package openRouter
 
 import (
-   "io"
-   "os"
+   "fmt"
+   "log"
+   "slices"
+   "strings"
    "testing"
+   "time"
 )
 
 func Test(t *testing.T) {
@@ -11,17 +14,18 @@ func Test(t *testing.T) {
    if err != nil {
       t.Fatal(err)
    }
-   resp, err := filters[0].find()
-   if err != nil {
-      t.Fatal(err)
-   }
-   defer resp.Body.Close()
-   data, err := io.ReadAll(resp.Body)
-   if err != nil {
-      t.Fatal(err)
-   }
-   err = os.WriteFile("find.json", data, os.ModePerm)
-   if err != nil {
-      t.Fatal(err)
+   log.Println("len(filters)", len(filters))
+   for i, filter := range filters {
+      if i >= 1 {
+         time.Sleep(99 * time.Millisecond)
+      }
+      models, err := filter.find()
+      if err != nil {
+         t.Fatal(err)
+      }
+      models = slices.DeleteFunc(models, func(m *model_data) bool {
+         return strings.HasPrefix(m.Name, filter.Name + ": ")
+      })
+      fmt.Printf("%9v %v\n", len(models), filter.Name)
    }
 }
