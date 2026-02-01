@@ -1,0 +1,288 @@
+{
+  "data": [
+    {
+      "name": "AI21",
+      "displayName": "AI21"
+    },
+    {
+      "name": "AionLabs",
+      "displayName": "AionLabs"
+    },
+    {
+      "name": "Alibaba",
+      "displayName": "Alibaba Cloud Int."
+    },
+    {
+      "name": "Amazon Bedrock",
+      "displayName": "Amazon Bedrock"
+    },
+    {
+      "name": "Amazon Nova",
+      "displayName": "Amazon Nova"
+    },
+    {
+      "name": "Ambient",
+      "displayName": "Ambient"
+    },
+    {
+      "name": "Anthropic",
+      "displayName": "Anthropic"
+    },
+    {
+      "name": "Arcee AI",
+      "displayName": "Arcee AI"
+    },
+    {
+      "name": "AtlasCloud",
+      "displayName": "AtlasCloud"
+    },
+    {
+      "name": "Avian",
+      "displayName": "Avian.io"
+    },
+    {
+      "name": "Azure",
+      "displayName": "Azure"
+    },
+    {
+      "name": "BaseTen",
+      "displayName": "Baseten"
+    },
+    {
+      "name": "Black Forest Labs",
+      "displayName": "Black Forest Labs"
+    },
+    {
+      "name": "Cerebras",
+      "displayName": "Cerebras"
+    },
+    {
+      "name": "Chutes",
+      "displayName": "Chutes"
+    },
+    {
+      "name": "Cirrascale",
+      "displayName": "Cirrascale"
+    },
+    {
+      "name": "Clarifai",
+      "displayName": "Clarifai"
+    },
+    {
+      "name": "Cloudflare",
+      "displayName": "Cloudflare"
+    },
+    {
+      "name": "Cohere",
+      "displayName": "Cohere"
+    },
+    {
+      "name": "Crusoe",
+      "displayName": "Crusoe"
+    },
+    {
+      "name": "DeepInfra",
+      "displayName": "DeepInfra"
+    },
+    {
+      "name": "DeepSeek",
+      "displayName": "DeepSeek"
+    },
+    {
+      "name": "FakeProvider",
+      "displayName": "FakeProvider"
+    },
+    {
+      "name": "Featherless",
+      "displayName": "Featherless"
+    },
+    {
+      "name": "Fireworks",
+      "displayName": "Fireworks"
+    },
+    {
+      "name": "Friendli",
+      "displayName": "Friendli"
+    },
+    {
+      "name": "GMICloud",
+      "displayName": "GMICloud"
+    },
+    {
+      "name": "Google AI Studio",
+      "displayName": "Google AI Studio"
+    },
+    {
+      "name": "Google",
+      "displayName": "Google Vertex"
+    },
+    {
+      "name": "Groq",
+      "displayName": "Groq"
+    },
+    {
+      "name": "Hyperbolic",
+      "displayName": "Hyperbolic"
+    },
+    {
+      "name": "Inception",
+      "displayName": "Inception"
+    },
+    {
+      "name": "Inceptron",
+      "displayName": "Inceptron"
+    },
+    {
+      "name": "InferenceNet",
+      "displayName": "inference.net"
+    },
+    {
+      "name": "Infermatic",
+      "displayName": "Infermatic"
+    },
+    {
+      "name": "Inflection",
+      "displayName": "Inflection"
+    },
+    {
+      "name": "Liquid",
+      "displayName": "Liquid"
+    },
+    {
+      "name": "Mancer 2",
+      "displayName": "Mancer"
+    },
+    {
+      "name": "Mara",
+      "displayName": "MARA"
+    },
+    {
+      "name": "Minimax",
+      "displayName": "MiniMax"
+    },
+    {
+      "name": "Mistral",
+      "displayName": "Mistral"
+    },
+    {
+      "name": "ModelRun",
+      "displayName": "ModelRun"
+    },
+    {
+      "name": "Modular",
+      "displayName": "Modular"
+    },
+    {
+      "name": "Moonshot AI",
+      "displayName": "Moonshot AI"
+    },
+    {
+      "name": "Morph",
+      "displayName": "Morph"
+    },
+    {
+      "name": "NCompass",
+      "displayName": "nCompass"
+    },
+    {
+      "name": "Nebius",
+      "displayName": "Nebius Token Factory"
+    },
+    {
+      "name": "NextBit",
+      "displayName": "NextBit"
+    },
+    {
+      "name": "Novita",
+      "displayName": "NovitaAI"
+    },
+    {
+      "name": "Nvidia",
+      "displayName": "NVIDIA"
+    },
+    {
+      "name": "OpenAI",
+      "displayName": "OpenAI"
+    },
+    {
+      "name": "OpenInference",
+      "displayName": "OpenInference"
+    },
+    {
+      "name": "Parasail",
+      "displayName": "Parasail"
+    },
+    {
+      "name": "Perplexity",
+      "displayName": "Perplexity"
+    },
+    {
+      "name": "Phala",
+      "displayName": "Phala"
+    },
+    {
+      "name": "Relace",
+      "displayName": "Relace"
+    },
+    {
+      "name": "SambaNova",
+      "displayName": "SambaNova"
+    },
+    {
+      "name": "Seed",
+      "displayName": "Seed"
+    },
+    {
+      "name": "SiliconFlow",
+      "displayName": "SiliconFlow"
+    },
+    {
+      "name": "Sourceful",
+      "displayName": "Sourceful"
+    },
+    {
+      "name": "Stealth",
+      "displayName": "Stealth"
+    },
+    {
+      "name": "StepFun",
+      "displayName": "StepFun"
+    },
+    {
+      "name": "StreamLake",
+      "displayName": "StreamLake"
+    },
+    {
+      "name": "Switchpoint",
+      "displayName": "Switchpoint"
+    },
+    {
+      "name": "Together",
+      "displayName": "Together"
+    },
+    {
+      "name": "Upstage",
+      "displayName": "Upstage"
+    },
+    {
+      "name": "Venice",
+      "displayName": "Venice"
+    },
+    {
+      "name": "WandB",
+      "displayName": "Weights & Biases"
+    },
+    {
+      "name": "xAI",
+      "displayName": "xAI"
+    },
+    {
+      "name": "Xiaomi",
+      "displayName": "Xiaomi"
+    },
+    {
+      "name": "Z.AI",
+      "displayName": "Z.ai"
+    }
+  ]
+}
