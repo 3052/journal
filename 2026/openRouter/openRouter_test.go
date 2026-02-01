@@ -7,7 +7,11 @@ import (
 )
 
 func Test(t *testing.T) {
-   resp, err := provider_filters()
+   filters, err := provider_filters()
+   if err != nil {
+      t.Fatal(err)
+   }
+   resp, err := filters[0].find()
    if err != nil {
       t.Fatal(err)
    }
@@ -16,7 +20,7 @@ func Test(t *testing.T) {
    if err != nil {
       t.Fatal(err)
    }
-   err = os.WriteFile("provider_filters.json", data, os.ModePerm)
+   err = os.WriteFile("find.json", data, os.ModePerm)
    if err != nil {
       t.Fatal(err)
    }
