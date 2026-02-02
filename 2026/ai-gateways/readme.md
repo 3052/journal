@@ -1,5 +1,17 @@
 # ai gateways
 
+## openRouter
+
+good but expensive
+
+https://openrouter.ai/google/gemini-2.5-pro
+
+## deepInfra
+
+no chat history
+
+https://deepinfra.com/google/gemini-2.5-pro
+
 ## glama
 
 UI is trash
@@ -11,18 +23,6 @@ https://glama.ai/gateway/models/gemini-2.5-pro
 chat history does not work
 
 https://requesty.ai/solution/llm-routing/models/coding/gemini-2-5-pro
-
-## openRouter
-
-good but expensive
-
-https://openrouter.ai/google/gemini-2.5-pro
-
-## deepInfra
-
-UI is trash
-
-https://deepinfra.com/google/gemini-2.5-pro
 
 ## vercel
 
