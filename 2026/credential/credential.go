@@ -2,7 +2,6 @@ package main
 
 import (
    "encoding/json"
-   "errors"
    "flag"
    "fmt"
    "log"
@@ -30,26 +29,32 @@ func get_users() ([]userinfo, error) {
          trial2, ok := passwords[password]
          if ok {
             if !trial2 {
-               return nil, errors.New(password)
+               return nil, fmt.Errorf("password conflict: trial user cannot use a non-trial password for user %v", user)
             }
          } else {
             passwords[password] = true
          }
       } else if trial == "false" {
-         _, ok := passwords[password]
-         if ok {
-            return nil, errors.New(password)
-         } else {
-            passwords[password] = false
+         // This block is changed to reflect your logic.
+         // We only check for duplicate passwords if the password is not empty.
+         if password != "" {
+            _, ok := passwords[password]
+            if ok {
+               return nil, fmt.Errorf("duplicate non-trial password for user: %v", user)
+            } else {
+               passwords[password] = false
+            }
          }
+         // If password is "", we now do nothing, allowing multiple non-trial users
+         // to have an empty password.
       } else if password != "" {
-         return nil, fmt.Errorf("%v", user)
+         return nil, fmt.Errorf("user has a password but trial status is not 'true' or 'false': %v", user)
       }
    }
    year_ago := time.Now().AddDate(-1, 0, 0).String()
    for _, user := range users {
       if user["date"] < year_ago {
-         return nil, fmt.Errorf("%v", user)
+         return nil, fmt.Errorf("user account is older than one year: %v", user)
       }
    }
    return users, nil
