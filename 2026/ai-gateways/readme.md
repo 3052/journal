@@ -6,23 +6,18 @@ good but expensive
 
 https://openrouter.ai/google/gemini-2.5-pro
 
-## deepInfra
-
-no chat history
-
-https://deepinfra.com/google/gemini-2.5-pro
-
 ## glama
 
-UI is trash
+Subject: remove "lets get you started"
+Date: 2026-02-02 08:37
+To: support@glama.ai
 
-https://glama.ai/gateway/models/gemini-2.5-pro
+the "lets get you started" window will not go away, it wants me to add
+billing details even though I already have a balance of $10
 
-## requesty
-
-chat history does not work
-
-https://requesty.ai/solution/llm-routing/models/coding/gemini-2-5-pro
+also its covering the recent chats which means I cannot access the
+recent chats unless I zoom out, it seems the UI team assumed everyone is
+using a 4K monitor when designing the website.
 
 ## vercel
 
@@ -35,3 +30,22 @@ no history. if you go here:
 https://ai-sdk.dev/playground
 
 they want you to upgrade to vercel pro for $20/month
+
+## deepInfra
+
+Subject: chat history
+Date: 2026-02-02 08:34
+To: info@deepinfra.com
+
+how do I view chat history, example:
+
+https://deepinfra.com/google/gemini-2.5-pro
+
+## requesty
+
+Subject: chat history does not work
+Date: 2026-02-02 08:39
+To: support@requesty.ai
+
+I have used the AI chat and been billed for the usage which is fine, but
+none of the chats are listed in the chat history
