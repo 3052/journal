@@ -1,11 +1,5 @@
 # ai gateways
 
-## openRouter
-
-good but expensive
-
-https://openrouter.ai/google/gemini-2.5-pro
-
 ## glama
 
 Subject: remove "lets get you started"
@@ -18,6 +12,14 @@ billing details even though I already have a balance of $10
 also its covering the recent chats which means I cannot access the
 recent chats unless I zoom out, it seems the UI team assumed everyone is
 using a 4K monitor when designing the website.
+
+https://glama.ai
+
+## openRouter
+
+good but expensive
+
+https://openrouter.ai/google/gemini-2.5-pro
 
 ## vercel
 
