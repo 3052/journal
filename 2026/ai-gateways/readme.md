@@ -1,29 +1,28 @@
 # ai gateways
 
-## glama
-
-Subject: remove "lets get you started"
-Date: 2026-02-02 08:37
-To: support@glama.ai
-
-the "lets get you started" window will not go away, it wants me to add
-billing details even though I already have a balance of $10
-
-also its covering the recent chats which means I cannot access the
-recent chats unless I zoom out, it seems the UI team assumed everyone is
-using a 4K monitor when designing the website.
-
-https://glama.ai
-
 ## openRouter
 
 good but expensive
 
 https://openrouter.ai/google/gemini-2.5-pro
 
+## glama
+
+Subject: cant upload text files
+Date: 2026-02-07 21:30
+To: support@glama.ai
+
+I just realized I cannot upload text files, only these:
+```
+*.pdf;*.jpe;*.jpg;*.jpeg;*.gif;*.png;*.bmp;*.ico;*.svg;*.svgz;*.tif;*.tiff;*.ai;
+*.drw;*.pct;*.psp;*.xcf;*.psd;*.raw;*.webp;*.heic;*.png;*.jpg;*.jpeg;*.gif;*.webp
+```
+that is completely unacceptable, Google AI Studio supports text files,
+as does OpenRouter
+
 ## vercel
 
-website is a god damn piece of shit. if you go here:
+if you go here:
 
 https://vercel.com/ai-gateway/models/gemini-2.5-pro
 
@@ -35,13 +34,15 @@ they want you to upgrade to vercel pro for $20/month
 
 ## deepInfra
 
-Subject: chat history
-Date: 2026-02-02 08:34
-To: info@deepinfra.com
+Subject: Re: chat history
+Date: 2026-02-07 21:33
+To: Yessenzhar Kanapin <yessen@deepinfra.com>
 
-how do I view chat history, example:
+On 2026-02-06 18:38, Yessenzhar Kanapin wrote:
+> We do not store any data API/demo page requests.
 
-https://deepinfra.com/google/gemini-2.5-pro
+OpenRouter uses browser storage with an option to import/export a chat -
+so its definitely possible without storing the data on your servers
 
 ## requesty
 
