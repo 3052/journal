@@ -194,6 +194,10 @@ https://justwatch.com/us/movie/unbreakable
 - https://justwatch.com/us/movie/three-kings
 - https://justwatch.com/us/movie/cruel-intentions-1
 
+## 1998
+
+https://justwatch.com/us/movie/perfect-blue
+
 ## 1997
 
 - https://justwatch.com/us/movie/starship-troopers
