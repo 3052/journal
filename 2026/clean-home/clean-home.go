@@ -36,6 +36,7 @@ func main() {
          }
       }
    }
+   log.SetFlags(log.Ltime)
    log.Print("disk cleanup")
    log.Print("recycle bin")
    log.Print(`C:\Users\Steven\AppData\Local\Microsoft\Edge`)
