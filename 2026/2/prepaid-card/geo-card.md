@@ -8,6 +8,8 @@
 
 ## baxity.com
 
+the QR site wants government issued photo ID
+
 https://baxity.com/store/product-category/prepaid-cards
 
 ## cysend.com
