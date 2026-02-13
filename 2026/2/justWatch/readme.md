@@ -7,6 +7,7 @@
 - https://justwatch.com/us/movie/send-help
 - https://justwatch.com/us/movie/the-drama
 - https://justwatch.com/us/movie/the-odyssey-2026
+- https://justwatch.com/us/movie/wuthering-heights-2026
 - https://justwatch.com/us/tv-show/his-and-hers
 - https://justwatch.com/us/tv-show/ponies
 
@@ -15,7 +16,6 @@
 - https://justwatch.com/us/movie/alpha-2025-1
 - https://justwatch.com/us/movie/bonjour-tristesse-2025-0
 - https://justwatch.com/us/movie/bugonia
-- https://justwatch.com/us/movie/die-my-love
 - https://justwatch.com/us/movie/dreams-2025
 - https://justwatch.com/us/movie/eenie-meanie
 - https://justwatch.com/us/movie/ennemi

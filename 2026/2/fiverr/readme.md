@@ -1,3 +1,0 @@
-# fiverr
-
-https://fiverr.com
