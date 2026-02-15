@@ -9,9 +9,14 @@ import (
 
 var events = []jog{
    {
+      days_before: 6,
+      day_of: date(2026, 2, 19),
+      ok: nil,
+   },
+   {
       days_before: 7,
       day_of: date(2026, 2, 13),
-      ok: nil,
+      ok: some(true),
    },
    {
       days_before: 8,
