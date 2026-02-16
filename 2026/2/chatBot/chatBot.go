@@ -9,25 +9,15 @@ import (
    "strings"
 )
 
-// FileData struct uses the clear "name" and "data" keys.
-type FileData struct {
-   Name string `json:"name"`
-   Data string `json:"data"`
-}
-
 func main() {
    // 1. Define and parse the required -dir flag.
-   inputDir := flag.String("dir", "", "The path to the input directory (required).")
+   inputDir := flag.String("d", "", "The path to the input directory")
    flag.Parse()
-
    if *inputDir == "" {
-      log.Println("Error: The -dir flag is a required argument.")
       flag.Usage()
-      os.Exit(1)
+      return
    }
-
    log.Printf("Target directory is: %s", *inputDir)
-
    // Validate that the provided path is a valid directory.
    info, err := os.Stat(*inputDir)
    if os.IsNotExist(err) {
@@ -36,7 +26,6 @@ func main() {
    if !info.IsDir() {
       log.Fatalf("Error: The path '%s' is not a directory.", *inputDir)
    }
-
    // 2. Find all processable files in that directory.
    sourceFiles, err := findSourceFiles(*inputDir)
    if err != nil {
@@ -80,22 +69,6 @@ func main() {
    log.Printf("Success! Output has been saved to %s", outputFilename)
 }
 
-// findSourceFiles now correctly uses os.ReadDir.
-func findSourceFiles(targetDir string) ([]string, error) {
-   entries, err := os.ReadDir(targetDir)
-   if err != nil {
-      return nil, err
-   }
-
-   var files []string
-   for _, entry := range entries {
-      if !entry.IsDir() {
-         files = append(files, entry.Name())
-      }
-   }
-   return files, nil
-}
-
 // generateJSON converts the file data into a compact, single-line JSON string.
 func generateJSON(data []FileData) (string, error) {
    bytes, err := json.Marshal(data)
@@ -104,3 +77,25 @@ func generateJSON(data []FileData) (string, error) {
    }
    return string(bytes), nil
 }
+// findSourceFiles now correctly uses os.ReadDir.
+func findSourceFiles(targetDir string) ([]string, error) {
+   entries, err := os.ReadDir(targetDir)
+   if err != nil {
+      return nil, err
+   }
+   var files []string
+   for _, entry := range entries {
+      if !entry.IsDir() {
+         log.Print(entry.Name())
+         files = append(files, entry.Name())
+      }
+   }
+   return files, nil
+}
+
+// FileData struct uses the clear "name" and "data" keys.
+type FileData struct {
+   Name string `json:"name"`
+   Data string `json:"data"`
+}
+
