@@ -67,7 +67,6 @@ const name = `D:\backblaze\largest\credential.json`
 func main() {
    key := flag.String("k", "password", "key")
    host := flag.String("h", "", "host")
-   user := flag.String("u", "", "user")
    contains := flag.String("c", "", "contains")
    flag.Parse()
    if *key == "password" {
@@ -99,11 +98,6 @@ func main() {
          }
          if *host != "" {
             if user2["host"] != *host {
-               continue
-            }
-         }
-         if *user != "" {
-            if user2["user"] != *user {
                continue
             }
          }
