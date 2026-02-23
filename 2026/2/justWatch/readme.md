@@ -183,6 +183,7 @@ https://justwatch.com/us/movie/lost-in-translation
 
 ## 2001
 
+- https://justwatch.com/us/movie/monsters-ball
 - https://justwatch.com/us/movie/swordfish
 - https://justwatch.com/us/movie/lord-of-the-rings-i-the-fellowship-of-the-ring
 - https://justwatch.com/us/movie/the-piano-teacher
