@@ -77,20 +77,36 @@ func generateJSON(data []FileData) (string, error) {
    }
    return string(bytes), nil
 }
-// findSourceFiles now correctly uses os.ReadDir.
-func findSourceFiles(targetDir string) ([]string, error) {
-   entries, err := os.ReadDir(targetDir)
-   if err != nil {
-      return nil, err
-   }
+
+// Replace your current findSourceFiles with this:
+func findSourceFiles(root string) ([]string, error) {
    var files []string
-   for _, entry := range entries {
-      if !entry.IsDir() {
-         log.Print(entry.Name())
-         files = append(files, entry.Name())
+   
+   // WalkDir walks the file tree rooted at root
+   err := filepath.WalkDir(root, func(path string, d os.DirEntry, err error) error {
+      if err != nil {
+         return err
       }
-   }
-   return files, nil
+      
+      // Skip directories, we only want files
+      if !d.IsDir() {
+         // calculate relative path so the filename isn't just "main.go", 
+         // but "src/main.go" if it was inside a subfolder
+         relPath, err := filepath.Rel(root, path)
+         if err != nil {
+             return err
+         }
+         
+         // Convert Windows backslashes to forward slashes for consistency if needed
+         relPath = filepath.ToSlash(relPath)
+         
+         log.Print(relPath)
+         files = append(files, relPath)
+      }
+      return nil
+   })
+
+   return files, err
 }
 
 // FileData struct uses the clear "name" and "data" keys.
@@ -98,4 +114,3 @@ type FileData struct {
    Name string `json:"name"`
    Data string `json:"data"`
 }
-
