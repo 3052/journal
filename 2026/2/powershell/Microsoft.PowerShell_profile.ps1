@@ -1,5 +1,8 @@
+# 2025-02-28
+$env:path = 'C:\Users\Steven\.cargo\bin'
+
 # 2025-11-29
-$env:path = 'D:\Bento4\bin'
+$env:path += ';D:\Bento4\bin'
 
 # 2025-11-04
 $env:RIPGREP_CONFIG_PATH = "C:\Users\Steven\AppData\Local\ripgrep\ripgrep.txt"

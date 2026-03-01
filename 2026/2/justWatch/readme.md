@@ -7,6 +7,7 @@
 - https://justwatch.com/us/movie/project-hail-mary
 - https://justwatch.com/us/movie/rip-0
 - https://justwatch.com/us/movie/send-help
+- https://justwatch.com/us/movie/the-bride-2025
 - https://justwatch.com/us/movie/the-drama
 - https://justwatch.com/us/movie/the-odyssey-2026
 - https://justwatch.com/us/movie/wuthering-heights-2026
@@ -195,6 +196,7 @@ https://justwatch.com/us/movie/unbreakable
 
 ## 1999
 
+- https://justwatch.com/us/movie/austin-powers-the-spy-who-shagged-me
 - https://justwatch.com/us/movie/the-thomas-crown-affair
 - https://justwatch.com/us/movie/the-matrix
 - https://justwatch.com/us/movie/the-world-is-not-enough
