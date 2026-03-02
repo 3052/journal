@@ -150,6 +150,7 @@
 
 ## 2011
 
+- https://justwatch.com/us/movie/bridesmaids
 - https://justwatch.com/us/movie/sound-of-my-voice
 - https://justwatch.com/us/tv-show/homeland
 
@@ -192,7 +193,8 @@ https://justwatch.com/us/movie/lost-in-translation
 
 ## 2000
 
-https://justwatch.com/us/movie/unbreakable
+- https://justwatch.com/us/movie/unbreakable
+- https://justwatch.com/us/movie/x-men
 
 ## 1999
 
