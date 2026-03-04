@@ -5,7 +5,7 @@
 *   Sunday, Mar 1: 1
 *   Monday, Mar 2: 0
 *   Tuesday, Mar 3: 0
-*   **Wednesday, Mar 4: 0**
+*   Wednesday, Mar 4: 0
 *   Thursday, Mar 5: 1
 *   Friday, Mar 6: 1
 *   Saturday, Mar 7: 3
@@ -17,14 +17,14 @@
 *   Monday, Mar 9: 0
 *   Tuesday, Mar 10: 0
 *   Wednesday, Mar 11: 0
-*   **Thursday, Mar 12: 0**
+*   Thursday, Mar 12: 0
 *   Friday, Mar 13: 1
 *   Saturday, Mar 14: 3
 *   **Total: 5 units**
 
 ## Week 3
 
-*   **Sunday, Mar 15: 3**
+*   Sunday, Mar 15: 3
 *   Monday, Mar 16: 0
 *   Tuesday, Mar 17: 0
 *   Wednesday, Mar 18: 0
@@ -40,6 +40,6 @@
 *   Tuesday, Mar 24: 0
 *   Wednesday, Mar 25: 0
 *   Thursday, Mar 26: 0
-*   **Friday, Mar 27: 3**
-*   **Saturday, Mar 28: 3**
+*   Friday, Mar 27: 3
+*   Saturday, Mar 28: 3
 *   **Total: 9 units**
