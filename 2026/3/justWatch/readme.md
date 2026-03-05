@@ -23,6 +23,7 @@
 - https://justwatch.com/us/movie/dreams-2025
 - https://justwatch.com/us/movie/eenie-meanie
 - https://justwatch.com/us/movie/ennemi
+- https://justwatch.com/us/movie/hamnet
 - https://justwatch.com/us/movie/heldin
 - https://justwatch.com/us/movie/honey-dont
 - https://justwatch.com/us/movie/if-i-had-legs-id-kick-you
@@ -55,9 +56,11 @@
 
 ## 2024
 
+- https://justwatch.com/us/movie/anora
 - https://justwatch.com/us/movie/drive-away-dolls
 - https://justwatch.com/us/movie/eden-2024-0
 - https://justwatch.com/us/movie/immaculate-2024
+- https://justwatch.com/us/movie/love-lies-bleeding-2024
 - https://justwatch.com/us/movie/presence-2024
 - https://justwatch.com/us/movie/the-fall-guy-2024
 - https://justwatch.com/us/tv-show/landman
@@ -135,6 +138,7 @@
 
 ## 2014
 
+- https://justwatch.com/us/movie/ennemi
 - https://justwatch.com/us/tv-show/fargo
 - https://justwatch.com/us/tv-show/true-detective
 
