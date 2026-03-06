@@ -102,6 +102,7 @@
 
 ## 2019
 
+- https://justwatch.com/us/movie/bombshell-2019
 - https://justwatch.com/us/movie/cold-pursuit
 - https://justwatch.com/us/movie/once-upon-a-time-in-hollywood
 - https://justwatch.com/us/movie/portrait-of-a-lady-on-fire
@@ -238,6 +239,10 @@ https://justwatch.com/us/movie/jurassic-park-i
 - https://justwatch.com/us/movie/patriot-games
 - https://justwatch.com/us/movie/sneakers
 
+## 1989
+
+https://justwatch.com/us/movie/bill-and-teds-excellent-adventure
+
 ## 1986
 
 https://justwatch.com/us/movie/the-color-of-money
@@ -245,6 +250,10 @@ https://justwatch.com/us/movie/the-color-of-money
 ## 1985
 
 https://justwatch.com/us/movie/back-to-the-future-part-i
+
+## 1981
+
+https://justwatch.com/us/movie/indiana-jones-and-the-raiders-of-the-lost-ark
 
 ## 1974
 
