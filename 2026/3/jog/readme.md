@@ -1,45 +1,66 @@
 # jog
 
-## Week 1
+## Week 1 (Current Week)
+*   Today: Friday, Mar 6: 1 mile
+*   Saturday, Mar 7: 3 miles
+*   Total: 6 miles
 
-*   Sunday, Mar 1: 1
-*   Monday, Mar 2: 0
-*   Tuesday, Mar 3: 0
-*   Wednesday, Mar 4: 0
-*   Thursday, Mar 5: 1
-*   Friday, Mar 6: 1
-*   Saturday, Mar 7: 3
-*   **Total: 6 units**
+## Week 2 (Goal: 7 Miles)
+*   Sunday, Mar 8: 3 miles
+*   Monday, Mar 9: Rest
+*   Tuesday, Mar 10: Rest
+*   Wednesday, Mar 11: Rest
+*   Thursday, Mar 12: Rest
+*   Friday, Mar 13: 1 mile
+*   Saturday, Mar 14: 3 miles
+*   Total: 7 miles (+1 increase)
 
-## Week 2
+## Week 3 (Goal: 8 Miles)
+*   Sunday, Mar 15: 3 miles
+*   Monday, Mar 16: Rest
+*   Tuesday, Mar 17: Rest
+*   Wednesday, Mar 18: Rest
+*   Thursday, Mar 19: 1 mile
+*   Friday, Mar 20: 1 mile
+*   Saturday, Mar 21: 3 miles
+*   Total: 8 miles (+1 increase)
 
-*   Sunday, Mar 8: 1
-*   Monday, Mar 9: 0
-*   Tuesday, Mar 10: 0
-*   Wednesday, Mar 11: 0
-*   Thursday, Mar 12: 0
-*   Friday, Mar 13: 1
-*   Saturday, Mar 14: 3
-*   **Total: 5 units**
+## Week 4 (Goal: 9 Miles)
+*   Sunday, Mar 22: 3 miles
+*   Monday, Mar 23: Rest
+*   Tuesday, Mar 24: Rest
+*   Wednesday, Mar 25: Rest
+*   Thursday, Mar 26: Rest
+*   Friday, Mar 27: 3 miles
+*   Saturday, Mar 28: 3 miles
+*   Total: 9 miles (+1 increase)
 
-## Week 3
+## Week 5 (Goal: 10 Miles)
+*   Sunday, Mar 29: 3 miles
+*   Monday, Mar 30: Rest
+*   Tuesday, Mar 31: Rest
+*   Wednesday, Apr 1: Rest
+*   Thursday, Apr 2: Rest
+*   Friday, Apr 3: 3 miles
+*   Saturday, Apr 4: 4 miles
+*   Total: 10 miles (+1 increase)
 
-*   Sunday, Mar 15: 3
-*   Monday, Mar 16: 0
-*   Tuesday, Mar 17: 0
-*   Wednesday, Mar 18: 0
-*   Thursday, Mar 19: 0
-*   Friday, Mar 20: 1
-*   Saturday, Mar 21: 3
-*   **Total: 7 units**
+## Week 6 (Goal: 11 Miles)
+*   Sunday, Apr 5: 4 miles
+*   Monday, Apr 6: Rest
+*   Tuesday, Apr 7: Rest
+*   Wednesday, Apr 8: Rest
+*   Thursday, Apr 9: Rest
+*   Friday, Apr 10: 3 miles
+*   Saturday, Apr 11: 4 miles
+*   Total: 11 miles (+1 increase)
 
-## Week 4
-
-*   Sunday, Mar 22: 3
-*   Monday, Mar 23: 0
-*   Tuesday, Mar 24: 0
-*   Wednesday, Mar 25: 0
-*   Thursday, Mar 26: 0
-*   Friday, Mar 27: 3
-*   Saturday, Mar 28: 3
-*   **Total: 9 units**
+## Week 7 (Goal: 12 Miles - Final Schedule)
+*   Sunday, Apr 12: 4 miles
+*   Monday, Apr 13: Rest
+*   Tuesday, Apr 14: Rest
+*   Wednesday, Apr 15: Rest
+*   Thursday, Apr 16: Rest
+*   Friday, Apr 17: 4 miles
+*   Saturday, Apr 18: 4 miles
+*   Total: 12 miles (+1 increase)

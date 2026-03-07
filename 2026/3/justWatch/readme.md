@@ -232,7 +232,8 @@ https://justwatch.com/us/movie/the-long-kiss-goodnight
 
 ## 1993
 
-https://justwatch.com/us/movie/jurassic-park-i
+- https://justwatch.com/us/movie/jurassic-park-i
+- https://justwatch.com/us/tv-show/frasier
 
 ## 1992
 
