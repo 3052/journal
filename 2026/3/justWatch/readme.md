@@ -69,6 +69,7 @@
 ## 2023
 
 - https://justwatch.com/us/movie/finalmente-lalba
+- https://justwatch.com/us/movie/oppenheimer
 - https://justwatch.com/us/movie/somebody-i-used-to-know
 - https://justwatch.com/us/movie/the-killer-2023-0
 - https://justwatch.com/us/tv-show/love-and-death
@@ -244,6 +245,10 @@ https://justwatch.com/us/movie/the-long-kiss-goodnight
 ## 1989
 
 https://justwatch.com/us/movie/bill-and-teds-excellent-adventure
+
+## 1988
+
+https://justwatch.com/us/movie/my-neighbor-totoro
 
 ## 1986
 
