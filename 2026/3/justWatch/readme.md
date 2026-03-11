@@ -235,6 +235,10 @@ https://justwatch.com/us/movie/perfect-blue
 
 https://justwatch.com/us/movie/the-long-kiss-goodnight
 
+## 1995
+
+https://justwatch.com/us/movie/whisper-of-the-heart
+
 ## 1993
 
 - https://justwatch.com/us/movie/jurassic-park-i
