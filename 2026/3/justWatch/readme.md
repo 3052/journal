@@ -10,6 +10,7 @@
 - https://justwatch.com/us/movie/rip-0
 - https://justwatch.com/us/movie/send-help
 - https://justwatch.com/us/movie/the-bride-2025
+- https://justwatch.com/us/movie/the-devil-wears-prada-2
 - https://justwatch.com/us/movie/the-drama
 - https://justwatch.com/us/movie/the-odyssey-2026
 - https://justwatch.com/us/movie/wuthering-heights-2026
