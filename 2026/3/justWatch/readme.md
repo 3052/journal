@@ -238,7 +238,8 @@ https://justwatch.com/us/movie/the-long-kiss-goodnight
 
 ## 1995
 
-https://justwatch.com/us/movie/whisper-of-the-heart
+- https://justwatch.com/us/movie/leaving-las-vegas
+- https://justwatch.com/us/movie/whisper-of-the-heart
 
 ## 1993
 
@@ -268,7 +269,8 @@ https://justwatch.com/us/movie/back-to-the-future-part-i
 
 ## 1981
 
-https://justwatch.com/us/movie/indiana-jones-and-the-raiders-of-the-lost-ark
+- https://justwatch.com/us/movie/indiana-jones-and-the-raiders-of-the-lost-ark
+- https://justwatch.com/us/movie/possession-1981
 
 ## 1977
 
