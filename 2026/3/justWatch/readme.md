@@ -96,10 +96,11 @@
 
 ## 2021
 
-- https://justwatch.com/us/movie/the-worst-person-in-the-world
 - https://justwatch.com/us/movie/dont-look-up-2021
 - https://justwatch.com/us/movie/free-guy
+- https://justwatch.com/us/movie/pleasure-2021
 - https://justwatch.com/us/movie/red-notice
+- https://justwatch.com/us/movie/the-worst-person-in-the-world
 - https://justwatch.com/us/tv-show/the-white-lotus
 
 ## 2020
@@ -195,7 +196,8 @@ https://justwatch.com/us/movie/tropic-thunder
 
 ## 2005
 
-https://justwatch.com/us/movie/syriana
+- https://justwatch.com/us/movie/pride-and-prejudice-2005
+- https://justwatch.com/us/movie/syriana
 
 ## 2004
 
