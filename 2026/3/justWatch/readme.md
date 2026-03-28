@@ -57,6 +57,7 @@
 - https://justwatch.com/us/tv-show/alien-earth
 - https://justwatch.com/us/tv-show/sunny-nights
 - https://justwatch.com/us/tv-show/the-chair-company
+- https://justwatch.com/us/tv-show/the-pitt
 - https://justwatch.com/us/tv-show/your-friends-and-neighbors
 
 ## 2024
@@ -117,6 +118,7 @@
 - https://justwatch.com/us/movie/once-upon-a-time-in-hollywood
 - https://justwatch.com/us/movie/portrait-of-a-lady-on-fire
 - https://justwatch.com/us/tv-show/the-boys
+- https://justwatch.com/us/tv-show/the-morning-show
 
 ## 2018
 
