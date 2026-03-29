@@ -7,6 +7,20 @@ import (
    "strings"
 )
 
+func read_file(name string) (string, error) {
+   file, err := os.Open(name)
+   if err != nil {
+      return "", err
+   }
+   defer file.Close()
+   var data strings.Builder
+   _, err = file.WriteTo(&data)
+   if err != nil {
+      return "", err
+   }
+   return data.String(), nil
+}
+
 var contains = []string{
    "BRAUMS STORE",
    "CHICK-FIL-A",
@@ -50,12 +64,4 @@ func main() {
    } else {
       flag.Usage()
    }
-}
-
-func read_file(name string) (string, error) {
-   data, err := os.ReadFile(name)
-   if err != nil {
-      return "", err
-   }
-   return string(data), nil
 }
