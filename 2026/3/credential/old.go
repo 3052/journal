@@ -11,6 +11,72 @@ import (
    "time"
 )
 
+const credential_json = `D:\backblaze\largest\credential.json`
+
+type userinfo map[string]string
+
+func (u userinfo) String() string {
+   keys := make([]string, 0, len(u))
+   for key := range u {
+      keys = append(keys, key)
+   }
+   slices.Sort(keys)
+   var data strings.Builder
+   for i, key := range keys {
+      if i >= 1 {
+         data.WriteByte('\n')
+      }
+      data.WriteString(key)
+      data.WriteString(" = ")
+      data.WriteString(u[key])
+   }
+   return data.String()
+}
+
+///
+
+func main() {
+   key := flag.String("k", "password", "key")
+   host := flag.String("h", "", "host")
+   contains := flag.String("c", "", "contains")
+   flag.Parse()
+   if *key == "password" {
+      if *contains == "" {
+         if *host == "" {
+            flag.Usage()
+            return
+         }
+      }
+   }
+   users, err := get_users()
+   if err != nil {
+      log.Fatal(err)
+   }
+   var line bool
+   for _, user2 := range users {
+      if *contains != "" {
+         if strings.Contains(user2.String(), *contains) {
+            if line {
+               fmt.Println()
+            } else {
+               line = true
+            }
+            fmt.Println(user2)
+         }
+      } else {
+         if user2[*key] == "" {
+            continue
+         }
+         if *host != "" {
+            if user2["host"] != *host {
+               continue
+            }
+         }
+         fmt.Print(user2[*key])
+         return
+      }
+   }
+}
 func get_users() ([]userinfo, error) {
    data, err := os.ReadFile(credential_json)
    if err != nil {
@@ -58,69 +124,4 @@ func get_users() ([]userinfo, error) {
       }
    }
    return users, nil
-}
-
-const credential_json = `D:\backblaze\largest\credential.json`
-
-type userinfo map[string]string
-
-func (u userinfo) String() string {
-   keys := make([]string, 0, len(u))
-   for key := range u {
-      keys = append(keys, key)
-   }
-   slices.Sort(keys)
-   var data strings.Builder
-   for i, key := range keys {
-      if i >= 1 {
-         data.WriteByte('\n')
-      }
-      data.WriteString(key)
-      data.WriteString(" = ")
-      data.WriteString(u[key])
-   }
-   return data.String()
-}
-
-func main() {
-   key := flag.String("k", "password", "key")
-   host := flag.String("h", "", "host")
-   contains := flag.String("c", "", "contains")
-   flag.Parse()
-   if *key == "password" {
-      if *contains == "" {
-         if *host == "" {
-            flag.Usage()
-            return
-         }
-      }
-   }
-   users, err := get_users()
-   if err != nil {
-      log.Fatal(err)
-   }
-   var line bool
-   for _, user2 := range users {
-      if *contains != "" {
-         if strings.Contains(user2.String(), *contains) {
-            if line {
-               fmt.Println()
-            } else {
-               line = true
-            }
-            fmt.Println(user2)
-         }
-      } else {
-         if user2[*key] == "" {
-            continue
-         }
-         if *host != "" {
-            if user2["host"] != *host {
-               continue
-            }
-         }
-         fmt.Print(user2[*key])
-         return
-      }
-   }
 }
