@@ -11,28 +11,6 @@ import (
    "time"
 )
 
-const credential_json = `D:\backblaze\largest\credential.json`
-
-type userinfo map[string]string
-
-func (u userinfo) String() string {
-   keys := make([]string, 0, len(u))
-   for key := range u {
-      keys = append(keys, key)
-   }
-   slices.Sort(keys)
-   var data strings.Builder
-   for i, key := range keys {
-      if i >= 1 {
-         data.WriteByte('\n')
-      }
-      data.WriteString(key)
-      data.WriteString(" = ")
-      data.WriteString(u[key])
-   }
-   return data.String()
-}
-
 func get_users() ([]userinfo, error) {
    data, err := os.ReadFile(credential_json)
    if err != nil {
@@ -80,6 +58,28 @@ func get_users() ([]userinfo, error) {
       }
    }
    return users, nil
+}
+
+const credential_json = `D:\backblaze\largest\credential.json`
+
+type userinfo map[string]string
+
+func (u userinfo) String() string {
+   keys := make([]string, 0, len(u))
+   for key := range u {
+      keys = append(keys, key)
+   }
+   slices.Sort(keys)
+   var data strings.Builder
+   for i, key := range keys {
+      if i >= 1 {
+         data.WriteByte('\n')
+      }
+      data.WriteString(key)
+      data.WriteString(" = ")
+      data.WriteString(u[key])
+   }
+   return data.String()
 }
 
 func main() {

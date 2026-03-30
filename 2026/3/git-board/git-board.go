@@ -31,7 +31,7 @@ func GenerateGitBoard() (*GitBoard, error) {
       g.Delete += del
       g.Change++
    }
-   
+
    g.Target = 100
    if g.Add >= g.Target {
       g.AddStatus = pass
