@@ -69,8 +69,10 @@
 - https://justwatch.com/us/movie/eden-2024-0
 - https://justwatch.com/us/movie/immaculate-2024
 - https://justwatch.com/us/movie/love-lies-bleeding-2024
+- https://justwatch.com/us/movie/parthenope-2024
 - https://justwatch.com/us/movie/presence-2024
 - https://justwatch.com/us/movie/the-fall-guy-2024
+- https://justwatch.com/us/movie/wolves-2024
 - https://justwatch.com/us/tv-show/landman
 - https://justwatch.com/us/tv-show/the-penguin
 
@@ -265,6 +267,10 @@ https://justwatch.com/us/movie/the-long-kiss-goodnight
 - https://justwatch.com/us/movie/patriot-games
 - https://justwatch.com/us/movie/sneakers
 
+## 1991
+
+https://justwatch.com/us/movie/point-break-1991
+
 ## 1989
 
 https://justwatch.com/us/movie/bill-and-teds-excellent-adventure
@@ -280,6 +286,10 @@ https://justwatch.com/us/movie/the-color-of-money
 ## 1985
 
 https://justwatch.com/us/movie/back-to-the-future-part-i
+
+## 1984
+
+https://justwatch.com/us/movie/romancing-the-stone
 
 ## 1981
 
