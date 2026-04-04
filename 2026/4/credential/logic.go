@@ -6,62 +6,9 @@ import (
    "os"
    "path/filepath"
    "sort"
+   "strings"
    "time"
 )
-
-// AppConfig stores the user's saved preferences
-type AppConfig struct {
-   DataFile string `json:"data_file"`
-}
-
-// getConfigPath determines where to save/load the configuration file
-func getConfigPath() (string, error) {
-   configDir, err := os.UserConfigDir()
-   if err != nil {
-      return "", err
-   }
-   appConfigDir := filepath.Join(configDir, "credential")
-   return filepath.Join(appConfigDir, "config.json"), nil
-}
-
-// saveConfig saves the file path to the user's config directory exactly as provided
-func saveConfig(file, configPath string) error {
-   cfg := AppConfig{DataFile: file}
-   configData, err := json.MarshalIndent(cfg, "", "  ")
-   if err != nil {
-      return fmt.Errorf("encoding config data: %w", err)
-   }
-
-   if err := os.MkdirAll(filepath.Dir(configPath), 0755); err != nil {
-      return fmt.Errorf("creating config directory: %w", err)
-   }
-
-   if err := os.WriteFile(configPath, configData, 0644); err != nil {
-      return fmt.Errorf("saving config file: %w", err)
-   }
-
-   // Print success to standard output (with a newline for readability)
-   fmt.Printf("Successfully saved data file location: %s\n", file)
-   return nil
-}
-
-// loadConfig reads the config file and returns the saved DataFile path
-func loadConfig(configPath string) (string, error) {
-   b, err := os.ReadFile(configPath)
-   if err != nil {
-      if os.IsNotExist(err) {
-         return "", nil // Normal if the user hasn't run -f yet
-      }
-      return "", fmt.Errorf("reading config file: %w", err)
-   }
-
-   var cfg AppConfig
-   if err := json.Unmarshal(b, &cfg); err != nil {
-      return "", fmt.Errorf("parsing config file (it might be corrupted): %w", err)
-   }
-
-   return cfg.DataFile, nil
-}
 
 // searchAndPrint finds the matching object(s) and prints them to standard output
 func searchAndPrint(credentials []map[string]string, host, key string) error {
@@ -77,11 +24,10 @@ func searchAndPrint(credentials []map[string]string, host, key string) error {
       }
       return fmt.Errorf("could not find key '%s' for host '%s'", key, host)
    }
-
    // No Key requested: Collect all objects matching the host
    var matches []map[string]string
    for _, cred := range credentials {
-      if cred["host"] == host {
+      if strings.EqualFold(cred["host"], host) {
          matches = append(matches, cred)
       }
    }
@@ -170,3 +116,57 @@ func validateData(credentials []map[string]string) error {
 
    return nil
 }
+// AppConfig stores the user's saved preferences
+type AppConfig struct {
+   DataFile string `json:"data_file"`
+}
+
+// getConfigPath determines where to save/load the configuration file
+func getConfigPath() (string, error) {
+   configDir, err := os.UserConfigDir()
+   if err != nil {
+      return "", err
+   }
+   appConfigDir := filepath.Join(configDir, "credential")
+   return filepath.Join(appConfigDir, "config.json"), nil
+}
+
+// saveConfig saves the file path to the user's config directory exactly as provided
+func saveConfig(file, configPath string) error {
+   cfg := AppConfig{DataFile: file}
+   configData, err := json.MarshalIndent(cfg, "", "  ")
+   if err != nil {
+      return fmt.Errorf("encoding config data: %w", err)
+   }
+
+   if err := os.MkdirAll(filepath.Dir(configPath), 0755); err != nil {
+      return fmt.Errorf("creating config directory: %w", err)
+   }
+
+   if err := os.WriteFile(configPath, configData, 0644); err != nil {
+      return fmt.Errorf("saving config file: %w", err)
+   }
+
+   // Print success to standard output (with a newline for readability)
+   fmt.Printf("Successfully saved data file location: %s\n", file)
+   return nil
+}
+
+// loadConfig reads the config file and returns the saved DataFile path
+func loadConfig(configPath string) (string, error) {
+   b, err := os.ReadFile(configPath)
+   if err != nil {
+      if os.IsNotExist(err) {
+         return "", nil // Normal if the user hasn't run -f yet
+      }
+      return "", fmt.Errorf("reading config file: %w", err)
+   }
+
+   var cfg AppConfig
+   if err := json.Unmarshal(b, &cfg); err != nil {
+      return "", fmt.Errorf("parsing config file (it might be corrupted): %w", err)
+   }
+
+   return cfg.DataFile, nil
+}
+
