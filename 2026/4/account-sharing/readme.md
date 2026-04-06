@@ -2,8 +2,6 @@
 
 ## https://shellix.xyz
 
-## https://digishare.io
-
 ## g2g.com
 
 https://g2g.com/categories/crave-accounts
