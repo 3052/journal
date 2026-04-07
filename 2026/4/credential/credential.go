@@ -12,20 +12,8 @@ import (
 )
 
 // searchAndPrint finds the matching object(s) and prints them to standard output
-func searchAndPrint(credentials []map[string]string, host, key string) error {
-   if key != "" {
-      // Specific Key requested: Print just the value (NO NEWLINE)
-      for _, cred := range credentials {
-         if cred["host"] == host {
-            if val, exists := cred[key]; exists {
-               fmt.Print(val)
-               return nil
-            }
-         }
-      }
-      return fmt.Errorf("could not find key '%s' for host '%s'", key, host)
-   }
-   // No Key requested: Collect all objects matching the host
+func searchAndPrint(credentials []map[string]string, host string, jsonOut bool) error {
+   // Collect all objects matching the host
    var matches []map[string]string
    for _, cred := range credentials {
       if strings.EqualFold(cred["host"], host) {
@@ -37,7 +25,17 @@ func searchAndPrint(credentials []map[string]string, host, key string) error {
       return fmt.Errorf("could not find any entries for host '%s'", host)
    }
 
-   // Format and print the matching objects
+   // Output as JSON if requested
+   if jsonOut {
+      jsonData, err := json.MarshalIndent(matches, "", "  ")
+      if err != nil {
+         return fmt.Errorf("failed to encode JSON: %w", err)
+      }
+      fmt.Println(string(jsonData))
+      return nil
+   }
+
+   // Format and print the matching objects in default text format
    for i, match := range matches {
       if i > 0 {
          // Add an empty line between multiple results for readability
@@ -117,6 +115,7 @@ func validateData(credentials []map[string]string) error {
 
    return nil
 }
+
 // AppConfig stores the user's saved preferences
 type AppConfig struct {
    DataFile string `json:"data_file"`
@@ -174,20 +173,30 @@ func loadConfig(configPath string) (string, error) {
 func main() {
    // Define command-line flags (all single-byte names)
    host := flag.String("h", "", "Host to search for (e.g., amcplus.com)")
-   key := flag.String("k", "", "Key to retrieve (e.g., password) - Optional")
+   hostJSON := flag.String("j", "", "Host to search for and output in JSON format (e.g., amcplus.com)")
    file := flag.String("f", "", "Save the JSON file location permanently")
 
    flag.Parse()
 
+   // Determine the target host and output format
+   targetHost := *host
+   jsonOut := false
+
+   // If the user provided the JSON string flag, override the standard targetHost
+   if *hostJSON != "" {
+      targetHost = *hostJSON
+      jsonOut = true
+   }
+
    // Execute core logic. If an error is returned, print to stderr and exit 1.
-   if err := run(*host, *key, *file); err != nil {
+   if err := run(targetHost, *file, jsonOut); err != nil {
       fmt.Fprintf(os.Stderr, "Error: %v\n", err)
       os.Exit(1)
    }
 }
 
 // run orchestrates the loading, validating, and searching of credentials
-func run(host, key, file string) error {
+func run(host, file string, jsonOut bool) error {
    configPath, err := getConfigPath()
    if err != nil {
       return fmt.Errorf("locating user config directory: %w", err)
@@ -231,5 +240,5 @@ func run(host, key, file string) error {
    }
 
    // 7. Search and output
-   return searchAndPrint(credentials, host, key)
+   return searchAndPrint(credentials, host, jsonOut)
 }
