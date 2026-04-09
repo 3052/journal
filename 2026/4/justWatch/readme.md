@@ -23,6 +23,7 @@
 - https://justwatch.com/us/movie/wuthering-heights-2026
 - https://justwatch.com/us/tv-show/dtf-st-louis
 - https://justwatch.com/us/tv-show/his-and-hers
+- https://justwatch.com/us/tv-show/maximum-pleasure-guaranteed
 - https://justwatch.com/us/tv-show/ponies
 - https://justwatch.com/us/tv-show/the-madison
 
