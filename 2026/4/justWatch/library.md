@@ -1,143 +1,259 @@
 # library
 
-- A Knight's Tale (2001)
-- A Serious Man (2009)
-- American Hustle (2013)
-- Anna Karenina (2012)
-- Austin Powers International Man of Mystery (1997)
-- Batman Begins (2005)
-- Being John Malkovich (1999)
-- Birdman or (The Unexpected Virtue of Ignorance) (2014)
-- Blade Runner (1982)
-- Blade Runner 2049 (2017)
-- Boogie Nights (1997)
-- Bound (1996)
-- Bugonia (2025)
-- Casino Royale (2006)
-- Cast Away (2000)
-- Castle in the Sky (1986)
-- Closer (2004)
-- Companion (2025)
-- Contagion (2011)
-- Cruel Intentions (1999)
-- Derailed (2005)
-- Die Hard With a Vengeance (1995)
-- Django Unchained (2012)
-- Donnie Darko (2001)
-- Edge of Tomorrow (2014)
-- Eileen (2023)
-- Eternal Sunshine of the Spotless Mind (2004)
-- Ex Machina (2015)
-- Eyes Wide Shut (1999)
-- Ferris Bueller's Day Off (1986)
-- Ford v Ferrari (2019)
-- Gattaca (1997)
-- GoldenEye (1995)
-- Gone Girl (2014)
-- Hackers (1995)
-- Hamnet (2025)
-- Heat (1995)
-- Horrible Bosses (2011)
-- Horrible Bosses 2 (2014)
-- I Care a Lot (2021)
-- I ♥ Huckabees (2004)
-- If I Had Legs I'd Kick You (2025)
-- Inception (2010)
-- Inherent Vice (2014)
-- Interstellar (2014)
-- Jack Reacher (2012)
-- Jackie Brown (1997)
-- Jerry Maguire (1996)
-- Jurassic Park (1993)
-- Kiki's Delivery Service (1989)
-- Kinds of Kindness (2024)
-- Knight and Day (2010)
-- Knives Out (2019)
-- Layer Cake (2004)
-- Lost in Translation (2003)
-- Manchester by the Sea (2016)
-- Memento (2000)
-- Michael Clayton (2007)
-- Miller's Crossing (1990)
-- Miss Sloane (2016)
-- Mission Impossible (1996)
-- Mission Impossible - Dead Reckoning Part One (2023)
-- Mission Impossible - Fallout (2018)
-- Mission Impossible - Ghost Protocol (2011)
-- Mission Impossible - The Final Reckoning (2025)
-- Mission Impossible III (2006)
-- Molly's Game (2017)
-- Moneyball (2011)
-- Mulholland Drive (2001)
-- Nausicaä of the Valley of the Wind (1984)
-- Nightcrawler (2014)
-- No Country for Old Men (2007)
-- No Hard Feelings (2023)
-- Ocean's Eleven (2001)
-- Ocean's Thirteen (2007)
-- Ocean's Twelve (2004)
-- One Battle After Another (2025)
-- Paint It Black (2016)
-- Palm Springs (2020)
-- Paris, Texas (1984)
-- Picnic at Hanging Rock (1975)
-- Pirates of the Caribbean The Curse of the Black Pearl (2003)
-- Pluribus (2025)
-- Porco Rosso (1992)
-- Presence (2025)
-- Primer (2004)
-- Prisoners (2013)
-- Promising Young Woman (2020)
-- Queen of Earth (2015)
-- Ronin (1998)
-- Sentimental Value (2025)
-- Shame (2011)
-- Sherlock Holmes (2009)
-- Shiva Baby (2021)
-- Sicario (2015)
-- Side Effects (2013)
-- Silver Linings Playbook (2012)
-- Snatch (2000)
-- Sound of My Voice (2011)
-- Spirited Away (2001)
-- Teenage Mutant Ninja Turtles (1990)
-- Tenet (2020)
-- The Big Lebowski (1998)
-- The Big Short (2015)
-- The Bourne Identity (2002)
-- The Bourne Supremacy (2004)
-- The Bourne Ultimatum (2007)
-- The Dark Knight Rises (2012)
-- The Departed (2006)
-- The Edge of Seventeen (2016)
-- The Fifth Element (1997)
-- The Fugitive - 1993
-- The Game (1997)
-- The Girl with the Dragon Tattoo (2011)
-- The Idea of You (2024)
-- The Life Aquatic with Steve Zissou (2004)
-- The Lobster (2015)
-- The Martian (2015)
-- The Master (2012)
-- The Matrix (1999)
-- The Prestige (2006)
-- The Revenant (2015)
-- The Royal Tenenbaums (2001)
-- The Secret World of Arrietty (2010)
-- The Town (2010)
-- The Truman Show (1998)
-- The Zone of Interest (2023)
-- There Will Be Blood (2007)
-- Three Colors Blue (1993)
-- Three Colors Red (1994)
-- Trance - 2013
-- Twister (1996)
-- Uncut Gems (2019)
-- V for Vendetta (2006)
-- Vicky Cristina Barcelona (2008)
-- Watchmen (2009)
-- When Marnie Was There (2014)
-- Whiplash (2014)
-- Wind River (2017)
-- X-Men First Class (2011)
-- Zodiac (2007)
+## 2025
+
+- https://justwatch.com/us/movie/bugonia
+- https://justwatch.com/us/movie/companion
+- https://justwatch.com/us/movie/hamnet
+- https://justwatch.com/us/movie/if-i-had-legs-id-kick-you
+- https://justwatch.com/us/movie/mission-impossible-8
+- https://justwatch.com/us/movie/one-battle-after-another-2025
+- https://justwatch.com/us/movie/presence
+- https://justwatch.com/us/movie/sentimental-value
+- https://justwatch.com/us/tv-show/pluribus
+
+## 2024
+
+- https://justwatch.com/us/movie/kinds-of-kindness
+- https://justwatch.com/us/movie/the-idea-of-you
+
+## 2023
+
+- https://justwatch.com/us/movie/eileen
+- https://justwatch.com/us/movie/mission-impossible-7
+- https://justwatch.com/us/movie/no-hard-feelings
+- https://justwatch.com/us/movie/the-zone-of-interest
+
+## 2021
+
+- https://justwatch.com/us/movie/i-care-a-lot
+- https://justwatch.com/us/movie/shiva-baby
+
+## 2020
+
+- https://justwatch.com/us/movie/palm-springs
+- https://justwatch.com/us/movie/promising-young-woman
+- https://justwatch.com/us/movie/tenet
+
+## 2019
+
+- https://justwatch.com/us/movie/ford-v-ferrari
+- https://justwatch.com/us/movie/knives-out
+- https://justwatch.com/us/movie/uncut-gems
+
+## 2018
+
+- https://justwatch.com/us/movie/mission-impossible-fallout
+
+## 2017
+
+- https://justwatch.com/us/movie/blade-runner-2049
+- https://justwatch.com/us/movie/mollys-game
+- https://justwatch.com/us/movie/wind-river
+
+## 2016
+
+- https://justwatch.com/us/movie/manchester-by-the-sea
+- https://justwatch.com/us/movie/miss-sloane
+- https://justwatch.com/us/movie/paint-it-black
+- https://justwatch.com/us/movie/the-edge-of-seventeen
+
+## 2015
+
+- https://justwatch.com/us/movie/ex-machina
+- https://justwatch.com/us/movie/queen-of-earth
+- https://justwatch.com/us/movie/sicario
+- https://justwatch.com/us/movie/the-big-short
+- https://justwatch.com/us/movie/the-lobster
+- https://justwatch.com/us/movie/the-martian
+- https://justwatch.com/us/movie/the-revenant
+
+## 2014
+
+- https://justwatch.com/us/movie/birdman
+- https://justwatch.com/us/movie/edge-of-tomorrow
+- https://justwatch.com/us/movie/gone-girl
+- https://justwatch.com/us/movie/horrible-bosses-2
+- https://justwatch.com/us/movie/inherent-vice
+- https://justwatch.com/us/movie/interstellar
+- https://justwatch.com/us/movie/nightcrawler
+- https://justwatch.com/us/movie/when-marnie-was-there
+- https://justwatch.com/us/movie/whiplash
+
+## 2013
+
+- https://justwatch.com/us/movie/american-hustle
+- https://justwatch.com/us/movie/prisoners
+- https://justwatch.com/us/movie/side-effects
+- https://justwatch.com/us/movie/trance
+
+## 2012
+
+- https://justwatch.com/us/movie/anna-karenina
+- https://justwatch.com/us/movie/django-unchained
+- https://justwatch.com/us/movie/jack-reacher-2012
+- https://justwatch.com/us/movie/silver-linings-playbook
+- https://justwatch.com/us/movie/the-dark-knight-rises
+- https://justwatch.com/us/movie/the-master
+
+## 2011
+
+- https://justwatch.com/us/movie/contagion
+- https://justwatch.com/us/movie/horrible-bosses-2011
+- https://justwatch.com/us/movie/mission-impossible-4
+- https://justwatch.com/us/movie/moneyball
+- https://justwatch.com/us/movie/shame
+- https://justwatch.com/us/movie/sound-of-my-voice
+- https://justwatch.com/us/movie/the-girl-with-the-dragon-tattoo
+- https://justwatch.com/us/movie/x-men-first-class
+
+## 2010
+
+- https://justwatch.com/us/movie/inception
+- https://justwatch.com/us/movie/knight-and-day
+- https://justwatch.com/us/movie/the-secret-world-of-arrietty
+- https://justwatch.com/us/movie/the-town
+
+## 2009
+
+- https://justwatch.com/us/movie/a-serious-man
+- https://justwatch.com/us/movie/sherlock-holmes
+- https://justwatch.com/us/movie/watchmen
+
+## 2008
+
+- https://justwatch.com/us/movie/vicky-cristina-barcelona
+
+## 2007
+
+- https://justwatch.com/us/movie/michael-clayton
+- https://justwatch.com/us/movie/no-country-for-old-men
+- https://justwatch.com/us/movie/oceans-thirteen
+- https://justwatch.com/us/movie/the-bourne-ultimatum
+- https://justwatch.com/us/movie/there-will-be-blood-2007
+- https://justwatch.com/us/movie/zodiac
+
+## 2006
+
+- https://justwatch.com/us/movie/casino-royale
+- https://justwatch.com/us/movie/mission-impossible-iii
+- https://justwatch.com/us/movie/the-departed
+- https://justwatch.com/us/movie/the-prestige
+- https://justwatch.com/us/movie/v-for-vendetta
+
+## 2005
+
+- https://justwatch.com/us/movie/batman-begins
+- https://justwatch.com/us/movie/derailed
+
+## 2004
+
+- https://justwatch.com/us/movie/closer
+- https://justwatch.com/us/movie/eternal-sunshine-of-the-spotless-mind
+- https://justwatch.com/us/movie/i-heart-huckabees
+- https://justwatch.com/us/movie/layer-cake
+- https://justwatch.com/us/movie/oceans-twelve
+- https://justwatch.com/us/movie/primer
+- https://justwatch.com/us/movie/the-bourne-supremacy
+- https://justwatch.com/us/movie/the-life-aquatic-with-steve-zissou
+
+## 2003
+
+- https://justwatch.com/us/movie/lost-in-translation
+- https://justwatch.com/us/movie/pirates-of-the-caribbean-the-curse-of-the-black-pearl
+
+## 2002
+
+- https://justwatch.com/us/movie/the-bourne-identity
+
+## 2001
+
+- https://justwatch.com/us/movie/a-knights-tale
+- https://justwatch.com/us/movie/donnie-darko-2001
+- https://justwatch.com/us/movie/mulholland-dr
+- https://justwatch.com/us/movie/oceans-eleven
+- https://justwatch.com/us/movie/spirited-away
+- https://justwatch.com/us/movie/the-royal-tenenbaums
+
+## 2000
+
+- https://justwatch.com/us/movie/cast-away-2000
+- https://justwatch.com/us/movie/memento
+- https://justwatch.com/us/movie/snatch
+
+## 1999
+
+- https://justwatch.com/us/movie/being-john-malkovich
+- https://justwatch.com/us/movie/cruel-intentions-1999
+- https://justwatch.com/us/movie/eyes-wide-shut
+- https://justwatch.com/us/movie/the-matrix
+
+## 1998
+
+- https://justwatch.com/us/movie/ronin
+- https://justwatch.com/us/movie/the-big-lebowski
+- https://justwatch.com/us/movie/the-truman-show
+
+## 1997
+
+- https://justwatch.com/us/movie/austin-powers-international-man-of-mystery
+- https://justwatch.com/us/movie/boogie-nights-1997
+- https://justwatch.com/us/movie/gattaca
+- https://justwatch.com/us/movie/jackie-brown
+- https://justwatch.com/us/movie/the-fifth-element
+- https://justwatch.com/us/movie/the-game
+
+## 1996
+
+- https://justwatch.com/us/movie/bound
+- https://justwatch.com/us/movie/jerry-maguire
+- https://justwatch.com/us/movie/mission-impossible
+- https://justwatch.com/us/movie/twister
+
+## 1995
+
+- https://justwatch.com/us/movie/die-hard-3
+- https://justwatch.com/us/movie/goldeneye
+- https://justwatch.com/us/movie/hackers-1995
+- https://justwatch.com/us/movie/heat
+
+## 1994
+
+- https://justwatch.com/us/movie/three-colors-red
+
+## 1993
+
+- https://justwatch.com/us/movie/jurassic-park-i
+- https://justwatch.com/us/movie/the-fugitive
+- https://justwatch.com/us/movie/three-colors-blue
+
+## 1992
+
+- https://justwatch.com/us/movie/porco-rosso
+
+## 1990
+
+- https://justwatch.com/us/movie/millers-crossing
+- https://justwatch.com/us/movie/teenage-mutant-ninja-turtles
+
+## 1989
+
+- https://justwatch.com/us/movie/kikis-delivery-service
+
+## 1986
+
+- https://justwatch.com/us/movie/castle-in-the-sky
+- https://justwatch.com/us/movie/ferris-buellers-day-off
+
+## 1984
+
+- https://justwatch.com/us/movie/nausicaa-of-the-valley-of-the-wind
+- https://justwatch.com/us/movie/paris-texas
+
+## 1982
+
+- https://justwatch.com/us/movie/blade-runner
+
+## 1975
+
+- https://justwatch.com/us/movie/picnic-at-hanging-rock
