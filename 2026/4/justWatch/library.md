@@ -43,7 +43,7 @@
 
 ## 2018
 
-- https://justwatch.com/us/movie/mission-impossible-fallout
+https://justwatch.com/us/movie/mission-impossible-fallout
 
 ## 2017
 
@@ -122,7 +122,7 @@
 
 ## 2008
 
-- https://justwatch.com/us/movie/vicky-cristina-barcelona
+https://justwatch.com/us/movie/vicky-cristina-barcelona
 
 ## 2007
 
@@ -164,7 +164,7 @@
 
 ## 2002
 
-- https://justwatch.com/us/movie/the-bourne-identity
+https://justwatch.com/us/movie/the-bourne-identity
 
 ## 2001
 
@@ -219,7 +219,7 @@
 
 ## 1994
 
-- https://justwatch.com/us/movie/three-colors-red
+https://justwatch.com/us/movie/three-colors-red
 
 ## 1993
 
@@ -229,7 +229,7 @@
 
 ## 1992
 
-- https://justwatch.com/us/movie/porco-rosso
+https://justwatch.com/us/movie/porco-rosso
 
 ## 1990
 
@@ -238,7 +238,7 @@
 
 ## 1989
 
-- https://justwatch.com/us/movie/kikis-delivery-service
+https://justwatch.com/us/movie/kikis-delivery-service
 
 ## 1986
 
@@ -252,8 +252,8 @@
 
 ## 1982
 
-- https://justwatch.com/us/movie/blade-runner
+https://justwatch.com/us/movie/blade-runner
 
 ## 1975
 
-- https://justwatch.com/us/movie/picnic-at-hanging-rock
+https://justwatch.com/us/movie/picnic-at-hanging-rock

@@ -288,7 +288,8 @@ https://justwatch.com/us/movie/point-break-1991
 
 ## 1989
 
-https://justwatch.com/us/movie/bill-and-teds-excellent-adventure
+- https://justwatch.com/us/movie/bill-and-teds-excellent-adventure
+- https://justwatch.com/us/movie/heathers
 
 ## 1988
 
