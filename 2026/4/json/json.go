@@ -46,8 +46,7 @@ func main() {
 
    // Validate that required flags are provided
    if *inFile == "" || *outFile == "" {
-      fmt.Println("Error: Both -in and -out flags are required.")
-      fmt.Println("Usage: go run main.go -in <input.json> -out <output.json> -depth <int>")
+      flag.Usage()
       os.Exit(1)
    }
 

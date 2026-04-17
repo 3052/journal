@@ -18,6 +18,7 @@
 - https://justwatch.com/us/movie/the-bride-2025
 - https://justwatch.com/us/movie/the-devil-wears-prada-2
 - https://justwatch.com/us/movie/the-dish-2026-1
+- https://justwatch.com/us/movie/the-dog-stars
 - https://justwatch.com/us/movie/the-drama
 - https://justwatch.com/us/movie/the-invite-2026
 - https://justwatch.com/us/movie/the-odyssey-2026
@@ -177,6 +178,7 @@
 ## 2013
 
 - https://justwatch.com/us/movie/burton-and-taylor
+- https://justwatch.com/us/movie/untitled-elmore-leonard-project
 - https://justwatch.com/us/movie/wolf-of-wall-street-the
 - https://justwatch.com/us/tv-show/masters-of-sex
 
