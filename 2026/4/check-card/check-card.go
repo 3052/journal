@@ -3,16 +3,18 @@ package main
 import (
    "bufio"
    "cmp"
+   "encoding/csv"
    "flag"
    "fmt"
    "os"
    "regexp"
    "slices"
+   "strconv"
    "strings"
    "time"
 )
 
-// MatchResult now holds a Count instead of a boolean
+// MatchResult holds a Count and the target Description
 type MatchResult struct {
    Description string
    Count       int
@@ -22,13 +24,13 @@ func main() {
    // Define command-line flag for the input file
    inputFile := flag.String("f", "", "Path to the bank statement text file")
    flag.Parse()
+
    // Ensure the file flag was provided
    if *inputFile == "" {
       flag.Usage()
       os.Exit(1)
    }
 
-   // 1. Define the target keywords to check against
    targets := []string{
       "BRAUMS STORE",
       "CHICK-FIL-A",
@@ -41,66 +43,17 @@ func main() {
       "WHATABURGER",
    }
 
-   // 2. Set timeframe boundaries normalized to midnight
    now := time.Now()
    today := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
-   oneWeekAgo := today.AddDate(0, 0, -7)
 
-   // 3. Open the bank statement file using the provided flag
-   file, err := os.Open(*inputFile)
+   // 1. Extract fallible reading logic
+   validDescriptions, err := extractRecentDescriptions(*inputFile, today, 7)
    if err != nil {
-      panic(err)
-   }
-   defer file.Close()
-
-   var validDescriptions []string
-   scanner := bufio.NewScanner(file)
-
-   // 4. Regex strictly for MM/DD format
-   dateRegex := regexp.MustCompile(`\b(\d{2}/\d{2})\b`)
-
-   // Parse file to extract matching descriptions
-   for scanner.Scan() {
-      line := strings.TrimSpace(scanner.Text())
-
-      if line == "Description" {
-         if scanner.Scan() {
-            desc := strings.TrimSpace(scanner.Text())
-
-            // Extract the MM/DD date from the description string
-            match := dateRegex.FindString(desc)
-            if match != "" {
-               // Parse just the MM/DD to extract the month and day
-               parsedMMDD, err := time.Parse("01/02", match)
-
-               if err == nil {
-                  year := today.Year()
-
-                  // If the transaction month is greater than the current month,
-                  // the week crossed January 1st (e.g., Today is Jan, transaction is Dec).
-                  if parsedMMDD.Month() > today.Month() {
-                     year--
-                  }
-
-                  // Create the actual date object using the evaluated year
-                  parsedDate := time.Date(year, parsedMMDD.Month(), parsedMMDD.Day(), 0, 0, 0, 0, today.Location())
-
-                  // Filter: Description date must be strictly on or after the 7-day cutoff.
-                  if !parsedDate.Before(oneWeekAgo) {
-                     // Append directly without strings.ToUpper
-                     validDescriptions = append(validDescriptions, desc)
-                  }
-               }
-            }
-         }
-      }
+      fmt.Fprintf(os.Stderr, "Fatal error reading descriptions: %v\n", err)
+      os.Exit(1)
    }
 
-   if err := scanner.Err(); err != nil {
-      panic(err)
-   }
-
-   // 5. Evaluate which targets are found in the filtered records and count them
+   // 2. Count occurrences (no fallible logic here)
    var results []*MatchResult
    for _, target := range targets {
       count := 0
@@ -115,16 +68,89 @@ func main() {
       })
    }
 
-   // 6. Sort by Count descending (highest count first)
-   // By comparing b to a (instead of a to b), we reverse the default ascending order.
+   // 3. Sort by Count descending
    slices.SortFunc(results, func(a, b *MatchResult) int {
       return cmp.Compare(a.Count, b.Count)
    })
 
-   // 7. Print the formatted Markdown table
-   fmt.Println("| count | description |")
-   fmt.Println("|---|---|")
-   for _, res := range results {
-      fmt.Printf("| %d | %s |\n", res.Count, res.Description)
+   // 4. Extract fallible writing logic
+   if err := writeCSV(results); err != nil {
+      fmt.Fprintf(os.Stderr, "Fatal error writing CSV: %v\n", err)
+      os.Exit(1)
    }
+}
+
+// extractRecentDescriptions handles file I/O, regex, date parsing, and filtering.
+func extractRecentDescriptions(filename string, today time.Time, lookbackDays int) ([]string, error) {
+   file, err := os.Open(filename)
+   if err != nil {
+      return nil, fmt.Errorf("failed to open file: %w", err)
+   }
+   defer file.Close()
+
+   cutoffDate := today.AddDate(0, 0, -lookbackDays)
+   var validDescriptions []string
+   scanner := bufio.NewScanner(file)
+
+   dateRegex := regexp.MustCompile(`\b(\d{2}/\d{2})\b`)
+
+   for scanner.Scan() {
+      line := strings.TrimSpace(scanner.Text())
+
+      if line == "Description" {
+         if scanner.Scan() {
+            desc := strings.TrimSpace(scanner.Text())
+
+            match := dateRegex.FindString(desc)
+            if match != "" {
+               parsedMMDD, err := time.Parse("01/02", match)
+               if err == nil {
+                  year := today.Year()
+
+                  if parsedMMDD.Month() > today.Month() {
+                     year--
+                  }
+
+                  parsedDate := time.Date(year, parsedMMDD.Month(), parsedMMDD.Day(), 0, 0, 0, 0, today.Location())
+
+                  if !parsedDate.Before(cutoffDate) {
+                     validDescriptions = append(validDescriptions, desc)
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   if err := scanner.Err(); err != nil {
+      return nil, fmt.Errorf("error reading file: %w", err)
+   }
+
+   return validDescriptions, nil
+}
+
+// writeCSV safely writes the sorted results to standard output, returning any encoding errors.
+func writeCSV(results []*MatchResult) error {
+   writer := csv.NewWriter(os.Stdout)
+
+   if err := writer.Write([]string{"count", "description"}); err != nil {
+      return fmt.Errorf("failed to write csv header: %w", err)
+   }
+
+   for _, res := range results {
+      row := []string{
+         strconv.Itoa(res.Count),
+         res.Description,
+      }
+      if err := writer.Write(row); err != nil {
+         return fmt.Errorf("failed to write csv row for %s: %w", res.Description, err)
+      }
+   }
+
+   writer.Flush()
+   if err := writer.Error(); err != nil {
+      return fmt.Errorf("failed to flush csv writer: %w", err)
+   }
+
+   return nil
 }

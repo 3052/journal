@@ -21,67 +21,48 @@ func main() {
    }
    defer inputFile.Close()
 
-   var currentFile *os.File
-   defer func() {
-      if currentFile != nil {
-         currentFile.Close()
-      }
-   }()
-
    scanner := bufio.NewScanner(inputFile)
 
-   // The simplest, valid-Go-syntax marker style
-   startMarker := "// --- START OF FILE "
-   endMarker := "// --- END OF FILE "
-   markerSuffix := " ---"
-
+   startMarker := "// FILE: "
+   
+   var currentFilename string
+   var content strings.Builder
    filesCreated := 0
+
+   // Helper function to flush the buffer to disk
+   saveCurrentFile := func() {
+      if currentFilename == "" {
+         return
+      }
+      if err := os.MkdirAll(filepath.Dir(currentFilename), 0755); err != nil {
+         log.Fatalf("Failed to create dirs for %s: %v", currentFilename, err)
+      }
+      if err := os.WriteFile(currentFilename, []byte(content.String()), 0644); err != nil {
+         log.Fatalf("Failed to write %s: %v", currentFilename, err)
+      }
+      fmt.Printf("Extracting: %s...\n", currentFilename)
+      filesCreated++
+      content.Reset()
+   }
 
    for scanner.Scan() {
       line := scanner.Text()
 
-      // Detect START marker
-      if strings.HasPrefix(line, startMarker) && strings.HasSuffix(line, markerSuffix) {
-         if currentFile != nil {
-            currentFile.Close()
-            currentFile = nil
-         }
-
-         filename := strings.TrimPrefix(line, startMarker)
-         filename = strings.TrimSuffix(filename, markerSuffix)
-         filename = strings.TrimSpace(filename)
-
-         if err := os.MkdirAll(filepath.Dir(filename), 0755); err != nil {
-            log.Fatalf("Failed to create directories for %s: %v", filename, err)
-         }
-
-         f, err := os.Create(filename)
-         if err != nil {
-            log.Fatalf("Failed to create file %s: %v", filename, err)
-         }
-         currentFile = f
-
-         fmt.Printf("Extracting: %s...\n", filename)
-         filesCreated++
+      // Detect the start of a new file
+      if strings.HasPrefix(line, startMarker) {
+         saveCurrentFile() // Save previous file
+         
+         currentFilename = strings.TrimPrefix(line, startMarker)
+         currentFilename = strings.TrimSpace(currentFilename)
          continue
       }
 
-      // Detect END marker
-      if strings.HasPrefix(line, endMarker) && strings.HasSuffix(line, markerSuffix) {
-         if currentFile != nil {
-            currentFile.Close()
-            currentFile = nil
-         }
-         continue
-      }
-
-      // Write the line to the current file
-      if currentFile != nil {
-         if _, err := currentFile.WriteString(line + "\n"); err != nil {
-            log.Fatalf("Failed to write to file: %v", err)
-         }
+      if currentFilename != "" {
+         content.WriteString(line + "\n")
       }
    }
+
+   saveCurrentFile() // Save the final file
 
    if err := scanner.Err(); err != nil {
       log.Fatalf("Error reading the input file: %v", err)
