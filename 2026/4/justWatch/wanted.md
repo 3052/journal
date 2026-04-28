@@ -23,6 +23,7 @@
 - https://justwatch.com/us/movie/the-drama
 - https://justwatch.com/us/movie/the-invite-2026
 - https://justwatch.com/us/movie/the-odyssey-2026
+- https://justwatch.com/us/movie/verity
 - https://justwatch.com/us/movie/wild-horse-nine
 - https://justwatch.com/us/movie/wuthering-heights-2026
 - https://justwatch.com/us/tv-show/dtf-st-louis
@@ -36,7 +37,6 @@
 
 - https://justwatch.com/us/movie/alpha-2025-1
 - https://justwatch.com/us/movie/bonjour-tristesse-2025-0
-- https://justwatch.com/us/movie/bugonia
 - https://justwatch.com/us/movie/dreams-2025
 - https://justwatch.com/us/movie/eenie-meanie
 - https://justwatch.com/us/movie/ennemi
@@ -60,6 +60,7 @@
 - https://justwatch.com/us/movie/sovereign-2025
 - https://justwatch.com/us/movie/the-assessment
 - https://justwatch.com/us/movie/the-battle-of-baktan-cross
+- https://justwatch.com/us/movie/the-currents
 - https://justwatch.com/us/movie/the-housemaid-0
 - https://justwatch.com/us/movie/the-phoenician-scheme
 - https://justwatch.com/us/movie/the-roses
@@ -75,6 +76,7 @@
 ## 2024
 
 - https://justwatch.com/us/movie/anora
+- https://justwatch.com/us/movie/cuckoo-2024
 - https://justwatch.com/us/movie/drive-away-dolls
 - https://justwatch.com/us/movie/eden-2024-0
 - https://justwatch.com/us/movie/immaculate-2024
@@ -105,6 +107,7 @@
 - https://justwatch.com/us/movie/emily-the-criminal
 - https://justwatch.com/us/movie/everything-everywhere-all-at-once
 - https://justwatch.com/us/movie/fresh-2022
+- https://justwatch.com/us/movie/kimi-2022
 - https://justwatch.com/us/movie/knives-out-2
 - https://justwatch.com/us/movie/tar-2022
 - https://justwatch.com/us/movie/the-northman

@@ -11,6 +11,15 @@ import (
    "time"
 )
 
+// getConfigPath determines where to save/load the configuration file
+func getConfigPath() (string, error) {
+   configDir, err := os.UserConfigDir()
+   if err != nil {
+      return "", err
+   }
+   return filepath.Join(configDir, "journal/credential.json"), nil
+}
+
 // searchAndPrint finds the matching object(s) and prints them to standard output
 func searchAndPrint(credentials []map[string]string, host string, jsonOut bool) error {
    // Collect all objects matching the host
@@ -119,16 +128,6 @@ func validateData(credentials []map[string]string) error {
 // AppConfig stores the user's saved preferences
 type AppConfig struct {
    DataFile string `json:"data_file"`
-}
-
-// getConfigPath determines where to save/load the configuration file
-func getConfigPath() (string, error) {
-   configDir, err := os.UserConfigDir()
-   if err != nil {
-      return "", err
-   }
-   appConfigDir := filepath.Join(configDir, "credential")
-   return filepath.Join(appConfigDir, "config.json"), nil
 }
 
 // saveConfig saves the file path to the user's config directory exactly as provided
