@@ -51,6 +51,7 @@
 - https://justwatch.com/us/movie/miroirs-no-3
 - https://justwatch.com/us/movie/mission-impossible-8
 - https://justwatch.com/us/movie/no-other-choice
+- https://justwatch.com/us/movie/o-horizon
 - https://justwatch.com/us/movie/oh-hi
 - https://justwatch.com/us/movie/panne-fatale
 - https://justwatch.com/us/movie/predator-badlands-2025
@@ -303,11 +304,13 @@ https://justwatch.com/us/movie/perfect-blue
 
 ## 1991
 
-https://justwatch.com/us/movie/point-break-1991
+- https://justwatch.com/us/movie/cape-fear
+- https://justwatch.com/us/movie/point-break-1991
 
 ## 1989
 
 - https://justwatch.com/us/movie/bill-and-teds-excellent-adventure
+- https://justwatch.com/us/movie/ghostbusters-ii
 - https://justwatch.com/us/movie/heathers
 
 ## 1988
