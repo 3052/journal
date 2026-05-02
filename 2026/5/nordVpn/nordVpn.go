@@ -2,213 +2,107 @@ package main
 
 import (
    "encoding/json"
-   "errors"
-   "flag"
    "fmt"
-   "io"
-   "log"
-   "net/http"
-   "net/url"
-   "os"
-   "os/exec"
-   "path/filepath"
-   "strconv"
-   "strings"
-   "time"
+   "sort"
 )
 
-// limit <= -1 for default
-// limit == 0 for all
-func WriteServers(limit int) ([]byte, error) {
-   var query string
-   if limit >= 0 {
-      query = "limit=" + strconv.Itoa(limit)
-   }
-   resp, err := Get(
-      &url.URL{
-         Scheme: "https",
-         Host:   "api.nordvpn.com",
-         Path:   "/v1/servers",
-         RawQuery: query,
-      },
-      nil,
-   )
-   if err != nil {
-      return nil, err
-   }
-   defer resp.Body.Close()
-   return io.ReadAll(resp.Body)
+// Define the necessary structs to parse the JSON data
+type Country struct {
+   Code string `json:"code"`
 }
 
-func FormatProxy(username, password, hostname string) string {
-   var data strings.Builder
-   data.WriteString("https://")
-   data.WriteString(username)
-   data.WriteByte(':')
-   data.WriteString(password)
-   data.WriteByte('@')
-   data.WriteString(hostname)
-   data.WriteString(":89")
-   return data.String()
-}
-
-func ReadServers(data []byte) ([]Server, error) {
-   var result []Server
-   err := json.Unmarshal(data, &result)
-   if err != nil {
-      return nil, err
-   }
-   return result, nil
-}
-
-func (s *Server) ProxySsl() bool {
-   for _, technology := range s.Technologies {
-      if technology.Identifier == "proxy_ssl" {
-         return true
-      }
-   }
-   return false
-}
-
-func (s *Server) Country(code string) bool {
-   for _, location := range s.Locations {
-      if location.Country.Code == code {
-         return true
-      }
-   }
-   return false
+type Location struct {
+   Country Country `json:"country"`
 }
 
 type Server struct {
-   Hostname     string
-   Status       string
-   Technologies []struct {
-      Identifier string
-   }
-   Locations []struct {
-      Country struct {
-         City struct {
-            DnsName string `json:"dns_name"`
+   ID        int        `json:"id"`
+   Name      string     `json:"name"`
+   Hostname  string     `json:"hostname"`
+   Load      int        `json:"load"`
+   Status    string     `json:"status"`
+   Locations []Location `json:"locations"`
+}
+
+// GetFastestServers filters by country code, sorts by lowest load, and limits the result.
+func GetFastestServers(servers []Server, countryCode string, max int) []Server {
+   var filtered []Server
+
+   // 1. Filter by country code and online status
+   for _, s := range servers {
+      if s.Status == "online" {
+         for _, loc := range s.Locations {
+            if loc.Country.Code == countryCode {
+               filtered = append(filtered, s)
+               break
+            }
          }
-         Code string
       }
    }
-}
-func Get(targetUrl *url.URL, headers map[string]string) (*http.Response, error) {
-   reqHeader := make(http.Header)
-   for key, value := range headers {
-      reqHeader.Set(key, value)
-   }
-   req := &http.Request{
-      Method: http.MethodGet,
-      URL:    targetUrl,
-      Header: reqHeader,
-   }
 
-   log.Println(req.Method, req.URL)
-   return http.DefaultClient.Do(req)
+   // 2. Sort the filtered servers by Load (ascending = fastest/least busy)
+   sort.Slice(filtered, func(i, j int) bool {
+      return filtered[i].Load < filtered[j].Load
+   })
+
+   // 3. Limit to the max requested servers (e.g., 9)
+   if len(filtered) > max {
+      return filtered[:max]
+   }
+   return filtered
 }
+
 func main() {
-   log.SetFlags(log.Ltime)
-   err := new(client).do()
-   if err != nil {
-      log.Fatal(err)
-   }
-}
-
-func (c *client) do() error {
-   var err error
-   c.cache, err = os.UserCacheDir()
-   if err != nil {
-      return err
-   }
-   c.cache = filepath.Join(c.cache, "nordVpn/nordVpn.json")
-   // 1
-   flag.BoolVar(&c.write, "w", false, "write")
-   // 2
-   flag.StringVar(&c.country_code, "c", "", "country code")
-   flag.Parse()
-   if c.write {
-      return c.do_write()
-   }
-   if c.country_code != "" {
-      return c.do_country_code()
-   }
-   flag.Usage()
-   return nil
-}
-
-func write_file(name string, data []byte) error {
-   log.Println("WriteFile", name)
-   return os.WriteFile(name, data, os.ModePerm)
-}
-
-func (c *client) do_write() error {
-   data, err := WriteServers(0)
-   if err != nil {
-      return err
-   }
-   return write_file(c.cache, data)
-}
-
-type client struct {
-   cache string
-   // 1
-   write bool
-   // 2
-   country_code string
-}
-
-func (c *client) do_country_code() error {
-   data, err := read_file(c.cache)
-   if err != nil {
-      return err
-   }
-   servers, err := ReadServers(data)
-   if err != nil {
-      return err
-   }
-   data, err = exec.Command("credential", "-j=api.nordvpn.com").Output()
-   if err != nil {
-      return err
-   }
-   var credential []struct {
-      Username string
-      Password string
-   }
-   err = json.Unmarshal(data, &credential)
-   if err != nil {
-      return err
-   }
-   for _, server := range servers {
-      if server.ProxySsl() {
-         if server.Country(c.country_code) {
-            fmt.Println(
-               FormatProxy(
-                  credential[0].Username, credential[0].Password,
-                  server.Hostname,
-               ),
-            )
-         }
+   // Sample JSON data based on your provided file
+   jsonData := `[
+      {
+         "id": 929966,
+         "name": "Poland #128",
+         "hostname": "pl128.nordvpn.com",
+         "load": 40,
+         "status": "online",
+         "locations":[
+            {"country": {"code": "PL"}}
+         ]
+      },
+      {
+         "id": 929967,
+         "name": "Poland #129",
+         "hostname": "pl129.nordvpn.com",
+         "load": 12,
+         "status": "online",
+         "locations": [
+            {"country": {"code": "PL"}}
+         ]
+      },
+      {
+         "id": 929968,
+         "name": "Germany #10",
+         "hostname": "de10.nordvpn.com",
+         "load": 5,
+         "status": "online",
+         "locations":[
+            {"country": {"code": "DE"}}
+         ]
       }
-   }
-   return nil
-}
+   ]`
 
-const duration = 24 * time.Hour
+   // Unmarshal JSON into a slice of Server structs
+   var servers []Server
+   if err := json.Unmarshal([]byte(jsonData), &servers); err != nil {
+      panic(err)
+   }
 
-func read_file(name string) ([]byte, error) {
-   file, err := os.Open(name)
-   if err != nil {
-      return nil, err
+   // Request fastest servers for "PL", max 9
+   targetCountry := "PL"
+   maxServers := 9
+
+   fastest := GetFastestServers(servers, targetCountry, maxServers)
+
+   // Print the results
+   fmt.Printf("Top %d fastest servers for %s:\n", maxServers, targetCountry)
+   fmt.Println("-------------------------------------------------")
+   for i, s := range fastest {
+      fmt.Printf("%d. %s (%s) - Load: %d%%\n", i+1, s.Name, s.Hostname, s.Load)
    }
-   defer file.Close()
-   info, err := file.Stat()
-   if err != nil {
-      return nil, err
-   }
-   if time.Since(info.ModTime()) >= duration {
-      return nil, errors.New(duration.String())
-   }
-   return io.ReadAll(file)
 }
