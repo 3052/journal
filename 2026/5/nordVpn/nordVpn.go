@@ -13,7 +13,6 @@ import (
    "os/exec"
    "path/filepath"
    "slices"
-   "strings"
    "time"
 )
 
@@ -26,24 +25,46 @@ type Location struct {
    Country Country `json:"country"`
 }
 
+// Group helps us identify if a server is standard, dedicated, P2P, etc.
+type Group struct {
+   Identifier string `json:"identifier"`
+}
+
 type Server struct {
    Name      string     `json:"name"`
    Hostname  string     `json:"hostname"`
    Load      int        `json:"load"`
    Locations []Location `json:"locations"`
+   Groups    []Group    `json:"groups"` // Added to filter out Dedicated IPs
 }
 
-// GetFastestServers filters by country code, sorts by lowest load, and limits the result.
+// GetFastestServers filters by exact country code, checks for standard servers, sorts by lowest load, and limits the result.
 func GetFastestServers(servers []*Server, countryCode string, limit int) []*Server {
    var filtered []*Server
 
-   // 1. Filter by country code
+   // 1. Filter by country code AND ensure it is a "Standard" server
    for _, s := range servers {
+      isTargetCountry := false
       for _, loc := range s.Locations {
-         if strings.EqualFold(loc.Country.Code, countryCode) {
-            filtered = append(filtered, s)
+         // EXACT match
+         if loc.Country.Code == countryCode {
+            isTargetCountry = true
             break
          }
+      }
+
+      // Check if the server belongs to the standard VPN group
+      isStandard := false
+      for _, group := range s.Groups {
+         if group.Identifier == "legacy_standard" {
+            isStandard = true
+            break
+         }
+      }
+
+      // Only append if it matches both conditions
+      if isTargetCountry && isStandard {
+         filtered = append(filtered, s)
       }
    }
 
@@ -177,7 +198,7 @@ func main() {
 
    // 6. Request fastest servers, max limit 9
    limit := 9
-   targetCountry := strings.ToUpper(*country)
+   targetCountry := *country // REMOVED strings.ToUpper for a true exact match
 
    fastest := GetFastestServers(servers, targetCountry, limit)
 
