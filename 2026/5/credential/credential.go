@@ -11,16 +11,8 @@ import (
    "time"
 )
 
-// getConfigPath determines where to save/load the configuration file
-func getConfigPath() (string, error) {
-   configDir, err := os.UserConfigDir()
-   if err != nil {
-      return "", err
-   }
-   return filepath.Join(configDir, "journal/credential.json"), nil
-}
-
-// searchAndPrint finds the matching object(s) and prints them to standard output
+// searchAndPrint finds the matching object(s) and prints them to standard
+// output
 func searchAndPrint(credentials []map[string]string, host string, jsonOut bool) error {
    // Collect all objects matching the host
    var matches []map[string]string
@@ -60,7 +52,7 @@ func searchAndPrint(credentials []map[string]string, host string, jsonOut bool) 
 
       // Print out the key-value pairs
       for _, k := range keys {
-         fmt.Printf("%s = %s\n", k, match[k])
+         fmt.Printf("%s: %s\n", k, match[k])
       }
    }
 
@@ -240,4 +232,12 @@ func run(host, file string, jsonOut bool) error {
 
    // 7. Search and output
    return searchAndPrint(credentials, host, jsonOut)
+}
+// getConfigPath determines where to save/load the configuration file
+func getConfigPath() (string, error) {
+   configDir, err := os.UserConfigDir()
+   if err != nil {
+      return "", err
+   }
+   return filepath.Join(configDir, "journal/credential.json"), nil
 }

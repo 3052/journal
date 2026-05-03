@@ -25,55 +25,71 @@ type Location struct {
    Country Country `json:"country"`
 }
 
-// Group helps us identify if a server is standard, dedicated, P2P, etc.
 type Group struct {
    Identifier string `json:"identifier"`
 }
 
-type Server struct {
-   Name      string     `json:"name"`
-   Hostname  string     `json:"hostname"`
-   Load      int        `json:"load"`
-   Locations []Location `json:"locations"`
-   Groups    []Group    `json:"groups"` // Added to filter out Dedicated IPs
+type Metadata struct {
+   Name  string `json:"name"`
+   Value string `json:"value"`
 }
 
-// GetFastestServers filters by exact country code, checks for standard servers, sorts by lowest load, and limits the result.
+type Technology struct {
+   Identifier string     `json:"identifier"`
+   Metadata   []Metadata `json:"metadata"`
+}
+
+type Server struct {
+   Name         string       `json:"name"`
+   Hostname     string       `json:"hostname"`
+   Load         int          `json:"load"`
+   Locations    []Location   `json:"locations"`
+   Groups       []Group      `json:"groups"`
+   Technologies []Technology `json:"technologies"`
+}
+
+// GetFastestServers filters by exact country code, excludes known bad groups, sorts by load, and limits results.
 func GetFastestServers(servers []*Server, countryCode string, limit int) []*Server {
    var filtered []*Server
 
-   // 1. Filter by country code AND ensure it is a "Standard" server
+   // Define server groups that do not work with standard proxy auth on port 89
+   badGroups := map[string]bool{
+      "legacy_dedicated_ip":       true, // Dedicated IPs
+      "legacy_double_vpn":         true, // Double VPN
+      "legacy_obfuscated_servers": true, // Obfuscated servers
+   }
+
    for _, s := range servers {
+      // 1. EXACT match for country code
       isTargetCountry := false
       for _, loc := range s.Locations {
-         // EXACT match
          if loc.Country.Code == countryCode {
             isTargetCountry = true
             break
          }
       }
 
-      // Check if the server belongs to the standard VPN group
-      isStandard := false
+      // 2. Exclude known bad options
+      isBadServer := false
       for _, group := range s.Groups {
-         if group.Identifier == "legacy_standard" {
-            isStandard = true
+         if badGroups[group.Identifier] {
+            isBadServer = true
             break
          }
       }
 
-      // Only append if it matches both conditions
-      if isTargetCountry && isStandard {
+      // Only append if it's the target country AND not a known bad server type
+      if isTargetCountry && !isBadServer {
          filtered = append(filtered, s)
       }
    }
 
-   // 2. Sort the filtered pointers by Load
+   // 3. Sort the filtered pointers by Load
    slices.SortFunc(filtered, func(a, b *Server) int {
       return cmp.Compare(a.Load, b.Load)
    })
 
-   // 3. Limit the results
+   // 4. Limit the results
    if len(filtered) > limit {
       return filtered[:limit]
    }
@@ -142,83 +158,60 @@ func getCredentials() (string, string, error) {
    return creds[0].Username, creds[0].Password, nil
 }
 
-func main() {
-   // Setup the command line flags
-   refresh := flag.Bool("refresh", false, "Fetch the latest server list from NordVPN")
-   country := flag.String("country", "", "Target country code (e.g., PL, DE, US) [REQUIRED]")
-   flag.Parse()
-
-   // Enforce the requirement of the country flag
-   if *country == "" {
-      fmt.Fprintf(os.Stderr, "Error: the -country flag is required.\n\n")
-      flag.Usage()
-      os.Exit(1)
-   }
-
-   // 1. Get the user's cache directory
-   cacheDir, err := os.UserCacheDir()
+func processCountryServers(filePath string, country string) error {
+   fileInfo, err := os.Stat(filePath)
    if err != nil {
-      log.Fatalf("Failed to get user cache directory: %v", err)
+      if os.IsNotExist(err) {
+         return fmt.Errorf("cache file does not exist. Please run the program with the -refresh flag first")
+      }
+      return fmt.Errorf("failed to access file %s: %w", filePath, err)
    }
 
-   // 2. Safely construct the file path
-   filePath := filepath.Join(cacheDir, "nordVpn", "nordVpn.json")
-
-   // 3. Handle the refresh flag or file age check
-   if *refresh {
-      if err := refreshFile(filePath); err != nil {
-         log.Fatalf("Refresh failed: %v", err)
-      }
-   } else {
-      fileInfo, err := os.Stat(filePath)
-      if err != nil {
-         if os.IsNotExist(err) {
-            log.Fatalf("Cache file does not exist. Please run the program with the -refresh flag.")
-         }
-         log.Fatalf("Failed to access file %s: %v", filePath, err)
-      }
-
-      // If the file was modified 24 hours ago or more, prompt user to refresh
-      if time.Since(fileInfo.ModTime()) >= 24*time.Hour {
-         log.Fatalf("Error: the file %s is 24 hours old or more. Please run with the -refresh flag.", filePath)
-      }
+   // If the file was modified 24 hours ago or more, prompt user to refresh
+   if time.Since(fileInfo.ModTime()) >= 24*time.Hour {
+      return fmt.Errorf("the file %s is 24 hours old or more. Please run with the -refresh flag", filePath)
    }
 
-   // 4. Read the JSON file
    jsonData, err := os.ReadFile(filePath)
    if err != nil {
-      log.Fatalf("Failed to read file %s: %v", filePath, err)
+      return fmt.Errorf("failed to read file %s: %w", filePath, err)
    }
 
-   // 5. Unmarshal JSON directly into a slice of pointers
    var servers []*Server
    if err := json.Unmarshal(jsonData, &servers); err != nil {
-      log.Fatalf("Failed to parse JSON: %v", err)
+      return fmt.Errorf("failed to parse JSON: %w", err)
    }
 
-   // 6. Request fastest servers, max limit 9
    limit := 9
-   targetCountry := *country // REMOVED strings.ToUpper for a true exact match
-
-   fastest := GetFastestServers(servers, targetCountry, limit)
+   fastest := GetFastestServers(servers, country, limit)
 
    if len(fastest) == 0 {
-      return
+      return nil
    }
 
-   // 7. Get credentials
    username, password, err := getCredentials()
    if err != nil {
-      log.Fatalf("Failed to retrieve credentials: %v", err)
+      return fmt.Errorf("failed to retrieve credentials: %w", err)
    }
 
-   // 8. Print the results in strict key-value line output format to Stdout
+   // Print the results in strict key-value line output format to Stdout
    for i, s := range fastest {
+      // Find the actual proxy hostname for this server if it exists
+      proxyHostname := s.Hostname // Default fallback
+      for _, tech := range s.Technologies {
+         for _, m := range tech.Metadata {
+            if m.Name == "proxy_hostname" && m.Value != "" {
+               proxyHostname = m.Value
+               break
+            }
+         }
+      }
+
       // Using url.URL safely URL-encodes the password and formats the string
       u := url.URL{
          Scheme: "https",
          User:   url.UserPassword(username, password),
-         Host:   fmt.Sprintf("%s:89", s.Hostname),
+         Host:   fmt.Sprintf("%s:89", proxyHostname),
       }
 
       fmt.Printf("name: %s\n", s.Name)
@@ -230,4 +223,39 @@ func main() {
          fmt.Println()
       }
    }
+
+   return nil
+}
+
+func main() {
+   refresh := flag.Bool("refresh", false, "Fetch the latest server list from NordVPN")
+   country := flag.String("country", "", "Target country code (e.g., PL, DE, US)")
+   flag.Parse()
+
+   cacheDir, err := os.UserCacheDir()
+   if err != nil {
+      log.Fatalf("Failed to get user cache directory: %v", err)
+   }
+   filePath := filepath.Join(cacheDir, "nordVpn", "nordVpn.json")
+
+   // ACTION 1: Refresh
+   if *refresh {
+      if err := refreshFile(filePath); err != nil {
+         log.Fatalf("Refresh failed: %v", err)
+      }
+      return
+   }
+
+   // ACTION 2: Get Country Servers
+   if *country != "" {
+      if err := processCountryServers(filePath, *country); err != nil {
+         log.Fatalf("Error processing country servers: %v", err)
+      }
+      return
+   }
+
+   // If neither flag was provided
+   fmt.Fprintf(os.Stderr, "Error: You must provide either -refresh or -country.\n\n")
+   flag.Usage()
+   os.Exit(1)
 }
