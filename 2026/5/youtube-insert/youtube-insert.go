@@ -203,12 +203,8 @@ func main() {
 func do_video_id(video_id, name string) error {
    raw_songs, err := read_songs(name)
    if err != nil {
-      if !errors.Is(err, os.ErrNotExist) {
-         return err
-      }
-      raw_songs = []map[string]any{}
+      return err
    }
-
    seen := make(map[string]bool)
    var songs []map[string]any
    input_exists := false
